@@ -1,84 +1,110 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehmet Turan Yardımcı</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      margin: 0;
+      padding: 24px;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    a.button {
+      border: 1px solid #d1d5db;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #111827;
+      display: inline-block;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 1rem;
+      background-color: #fff;
+    }
+    ul {
+      padding-left: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Mehmet Turan Yardımcı</h1>
+    <p>Computer Engineering Student | Robotics & AI Enthusiast | Team Leader @ 1.5 Adana AGM Alkar</p>
+    <div class="button-row">
+      <a class="button" href="mailto:mehmetturanyardimci@hotmail.com">Email</a>
+      <a class="button" href="https://www.linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">LinkedIn</a>
+      <a class="button" href="https://github.com/mturan33" target="_blank">GitHub</a>
+    </div>
 
-export default function Portfolio() {
-  return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 p-6 sm:p-8">
-      <section className="max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-3">Mehmet Turan Yardımcı</h1>
-        <p className="text-lg sm:text-xl text-gray-700 mb-6">
-          Computer Engineering Student | Robotics & AI Enthusiast | Team Leader @ 1.5 Adana AGM Alkar
-        </p>
-        <div className="flex flex-wrap gap-4 mb-10">
-          <Button variant="outline" asChild>
-            <a href="mailto:mehmetturanyardimci@hotmail.com">
-              <Mail className="mr-2 h-4 w-4" /> Email
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="https://www.linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">
-              <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="https://github.com/mturan33" target="_blank">
-              <Github className="mr-2 h-4 w-4" /> GitHub
-            </a>
-          </Button>
-        </div>
+    <section>
+      <h2>About Me</h2>
+      <p>I’m a final-year Computer Engineering student at Çukurova University with a strong focus on robotics, autonomous systems,
+        and AI. I led the 1.5 Adana AGM Alkar UAV team for 3 years and developed intelligent robotic solutions using ROS, YOLO,
+        and Gazebo. I'm passionate about building real-world autonomous systems that solve impactful problems.</p>
+    </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-3">About Me</h2>
-          <p className="text-gray-800 leading-relaxed">
-            I’m a final-year Computer Engineering student at Çukurova University with a strong focus on robotics, autonomous systems,
-            and AI. I led the 1.5 Adana AGM Alkar UAV team for 3 years and developed intelligent robotic solutions using ROS, YOLO,
-            and Gazebo. I'm passionate about building real-world autonomous systems that solve impactful problems.
-          </p>
-        </section>
+    <section>
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Benchmark Local Path Planners (BARN Challenge)</h3>
+        <p>Developed a benchmarking framework in ROS to evaluate local planners like DWA and TEB on the BARN dataset
+          for cluttered environments. Visualized and compared performance across scenarios.</p>
+      </div>
+      <div class="card">
+        <h3>PID Controller with LEGO NXT</h3>
+        <p>Implemented a PID algorithm on LEGO Mindstorms NXT for real-time motor control using sensor feedback.</p>
+      </div>
+      <div class="card">
+        <h3>Weather Forecast App</h3>
+        <p>Built a weather app in Kotlin using OpenWeather API, allowing users to check real-time weather by location.</p>
+      </div>
+    </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-3">Projects</h2>
-          <div className="grid gap-4">
-            <Card>
-              <CardContent className="p-5">
-                <h3 className="text-xl font-semibold mb-1">Benchmark Local Path Planners (BARN Challenge)</h3>
-                <p className="text-gray-700">
-                  Developed a benchmarking framework in ROS to evaluate local planners like DWA and TEB on the BARN dataset
-                  for cluttered environments. Visualized and compared performance across scenarios.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-5">
-                <h3 className="text-xl font-semibold mb-1">PID Controller with LEGO NXT</h3>
-                <p className="text-gray-700">
-                  Implemented a PID algorithm on LEGO Mindstorms NXT for real-time motor control using sensor feedback.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-5">
-                <h3 className="text-xl font-semibold mb-1">Weather Forecast App</h3>
-                <p className="text-gray-700">
-                  Built a weather app in Kotlin using OpenWeather API, allowing users to check real-time weather by location.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-3">Skills</h2>
-          <ul className="list-disc list-inside text-gray-800 leading-relaxed">
-            <li>Robotics: ROS, Gazebo, Isaac Sim, Jetson, Pixhawk</li>
-            <li>AI: YOLOv4–v8, OpenCV, CNNs</li>
-            <li>Languages: Python, C/C++, Java, Kotlin, SQL</li>
-            <li>Tools: Git, Android Studio, Jakarta EE, Unreal Engine</li>
-          </ul>
-        </section>
-      </section>
-    </main>
-  );
-}
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Robotics: ROS, Gazebo, Isaac Sim, Jetson, Pixhawk</li>
+        <li>AI: YOLOv4–v8, OpenCV, CNNs</li>
+        <li>Languages: Python, C/C++, Java, Kotlin, SQL</li>
+        <li>Tools: Git, Android Studio, Jakarta EE, Unreal Engine</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
