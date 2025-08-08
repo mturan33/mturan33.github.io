@@ -64,14 +64,30 @@
     .section-content {
       margin-left: 0.6rem;
     }
+    .cv-button {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 10px 18px;
+      border: 2px solid #a5b4fc;
+      color: #a5b4fc;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .cv-button:hover {
+      background-color: #a5b4fc;
+      color: #0a2540;
+    }
   </style>
 </head>
 <body>
   <main>
     <h1>MEHMET TURAN YARDIMCI</h1>
+
     <div style="text-align:center; margin-bottom:1.5rem;">
-    <img src="profile.jpg" alt="Mehmet Turan Yardımcı" 
-      style="width:150px; height:150px; border-radius:50%; object-fit:cover; border: 3px solid #a5b4fc;" />
+      <img src="profile.jpg" alt="Mehmet Turan Yardımcı" 
+        style="width:150px; height:150px; border-radius:50%; object-fit:cover; border: 3px solid #a5b4fc;" />
     </div>
 
     <div class="contact-info">
@@ -81,14 +97,27 @@
       <a href="https://github.com/mturan33" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
 
-    <p><strong>Computer Engineer | Intelligent Robotic Systems</strong></p>
-    <ul>
-      <li>Computer Engineering graduate specialized in robotics, AI, and autonomous systems</li>
-      <li>Led a university UAV team (1.5 Adana AGM ALKAR) for 3 years, managing projects with YOLO, ROS1/2, Gazebo</li>
-      <li>Developed object detection systems using YOLOv4–v8, integrated with Isaac Sim, Jetson Nano and Pixhawk</li>
-      <li>Final year project on local planner benchmarking (BARN dataset) is under publication review</li>
-      <li>Passionate about contributing to high-impact R&D teams building real-world intelligent systems</li>
-    </ul>
+    <a href="CV_English.pdf" class="cv-button" download>Download CV</a>
+
+    <section>
+      <p>
+        I am Mehmet Turan Yardımcı, a Computer Engineering graduate from Çukurova University’s English program, specializing in robotics, computer vision, and autonomous systems.
+        During my studies, I led the 1.5 Adana Savaşan UAV Team for 3 years, gaining extensive leadership, project management, and teamwork experience in designing autonomous UAVs.
+      </p>
+      <p>
+        My graduation thesis involved benchmarking local path planners using the BARN dataset. Currently, my paper is under review for publication in the Çukurova Journal of Science and Engineering.
+      </p>
+      <p>
+        I have hands-on experience with ROS1/2, Gazebo, NVIDIA Isaac Sim, and object detection using YOLO versions 4 through 8, integrating these with hardware platforms such as Jetson Nano and Pixhawk Orange Cube.
+      </p>
+      <p>
+        My main programming language is C++, complemented by knowledge of C, Python, and C#. To enhance simulation and development skills, I explore Unreal Engine and have experience with .NET, SAP, Android Studio, and various IDEs.
+      </p>
+      <p>
+        Passionate about intelligent robotic systems, I aim to contribute to impactful R&D teams, working on autonomous decision-making and navigation challenges in robotics.
+        I am eager to apply my skills and grow through innovative, real-world projects.
+      </p>
+    </section>
 
     <h2>Work Experience</h2>
     <h3>Medcem — Computer Engineer Intern</h3>
@@ -102,17 +131,17 @@
     <h3>1.5 Adana AGM Alkar — Team Leader</h3>
     <p class="section-content"><em>01/2022 - 07/2025, Adana, Türkiye (Part-time)</em></p>
     <ul class="section-content">
-      <li>Managed a 10+ member team in designing autonomous UAV systems</li>
-      <li>Led participation in TUBITAK and TEKNOFEST competitions with award-winning results</li>
-      <li>Designed AI-based image processing modules for autonomous navigation</li>
-      <li>Integrated ROS-based pipelines using YOLOv5, Jetson Nano, and Pixhawk flight stack</li>
+      <li>Led a team of 10+ members designing autonomous UAV systems</li>
+      <li>Managed award-winning projects in TUBITAK and TEKNOFEST competitions</li>
+      <li>Developed AI-based image processing modules for autonomous navigation</li>
+      <li>Integrated ROS pipelines with YOLOv5, Jetson Nano, and Pixhawk flight controllers</li>
     </ul>
 
     <h2>Education</h2>
-    <h3>Çukurova Üniversitesi — Bachelor's degree in Computer Engineering (English)</h3>
+    <h3>Çukurova Üniversitesi — Bachelor's Degree in Computer Engineering (English)</h3>
     <p class="section-content"><em>10/2021 - 07/2025, Adana, Turkey</em></p>
 
-    <h3>Białystok University of Technology — Erasmus+ Bachelor's degree, Computer Science</h3>
+    <h3>Białystok University of Technology — Erasmus+ Exchange, Computer Science (English)</h3>
     <p class="section-content"><em>01/2024 - 01/2025</em></p>
 
     <h2>Certifications</h2>
@@ -121,38 +150,94 @@
     </ul>
 
     <h2>Projects</h2>
+
     <h3>Benchmark Local Path Planners BARN Challenge</h3>
     <p class="section-content">
-      Developed a benchmarking framework to evaluate local path planners in complex and cluttered environments using ROS and the BARN dataset. 
-      The system integrates multiple planning algorithms and evaluates their performance under robot navigation scenarios. A related paper will be published soon.
+      Developed a comprehensive benchmarking framework using ROS and the BARN dataset to evaluate local path planners in cluttered, complex environments.
+      The tool compares multiple algorithms (e.g., DWA, TEB) and assesses their navigation efficiency and reliability. The associated academic paper is pending publication.
     </p>
     <p class="section-content"><strong>Technologies:</strong> ROS, Gazebo, Python, NumPy, Matplotlib, RViz, Git</p>
+    <p class="section-content">
+      <a href="https://github.com/mturan33/benchmark-local-path-planners-barn-challenge" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
 
     <h3>PID Implementation with NXT Robot</h3>
     <p class="section-content">
-      Implemented a PID control algorithm on LEGO Mindstorms NXT robots to enable motor control using real-time sensor feedback.
+      Designed and implemented a PID controller on LEGO Mindstorms NXT robots for precise motor control with real-time sensor feedback.
+      The project uses NotExactlyC (NXC) language and Bricx Command Center IDE for programming and debugging.
     </p>
     <p class="section-content"><strong>Technologies:</strong> NotExactlyC (NXC), Bricx Command Center, PID Controller</p>
-
-    <h3>Bank Application And Its Tests With JUnit</h3>
     <p class="section-content">
-      Developed a banking application in Java with unit testing using JUnit. Test coverage is reported using the JaCoCo plugin via Maven integration. Deployed with Glassfish.
+      <a href="https://github.com/mturan33/PID_Implementation_With_NXT_Robot" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+
+    <h3>Bank Application and Unit Testing with JUnit</h3>
+    <p class="section-content">
+      Developed a banking system application in Java, focusing on robust unit testing using JUnit framework.
+      Utilized Maven for build automation and JaCoCo for coverage reporting. The app was deployed on Glassfish application server.
     </p>
     <p class="section-content"><strong>Technologies:</strong> Java, Jakarta EE, JUnit, Maven, JaCoCo, Glassfish</p>
-
-    <h3>Weather Application</h3>
     <p class="section-content">
-      Created a weather forecasting mobile application using Kotlin and the OpenWeather API. It provides real-time weather data based on the user’s location or an selected location.
+      <a href="https://github.com/mturan33/BankTestWJUnit" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+
+    <h3>Weather Forecasting Mobile Application</h3>
+    <p class="section-content">
+      Created a Kotlin-based Android app that displays real-time weather data fetched from OpenWeather API.
+      Features include location-based weather info and a clean user interface.
     </p>
     <p class="section-content"><strong>Technologies:</strong> Kotlin, Android Studio, REST API</p>
+    <p class="section-content">
+      <a href="https://github.com/mturan33/WeatherApp" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
 
+    <h3>1.5 Adana Alkar IHA Ground Control</h3>
+    <p class="section-content">
+      Developed ground control station software for UAV operations, focusing on real-time telemetry, waypoint navigation, and mission planning.
+      The system supports communication with UAVs using Pixhawk Orange Cube and RFD900 radios.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> C++, ROS, Qt, MAVLink, Pixhawk, RFD900</p>
+    <p class="section-content">
+      <a href="https://github.com/250420032005/1.5-Adana-Alkar-IHA-Ground-Control" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+
+    <h3>Image Recognition Application</h3>
+    <p class="section-content">
+      Implemented an image recognition system using deep learning techniques to classify and detect objects in images.
+      The app integrates OpenCV for image processing and YOLO models for real-time detection.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> Python, OpenCV, YOLO, TensorFlow</p>
+    <p class="section-content">
+      <a href="https://github.com/mturan33/ImageRecognitionApp" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+
+    <h3>MKE ToDo Application</h3>
+    <p class="section-content">
+      Developed a simple yet effective ToDo task management app with CRUD functionalities and an intuitive UI.
+      Built to practice full-stack development skills, integrating front-end and back-end technologies.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> C#, .NET, Entity Framework, WPF</p>
+    <p class="section-content">
+      <a href="https://github.com/mturan33/MKE_ToDo" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+
+    <h3>Personal Portfolio Website</h3>
+    <p class="section-content">
+      Created a personal portfolio website using GitHub Pages to showcase projects, skills, and contact information.
+      Designed with HTML, CSS, and JavaScript to ensure responsiveness and accessibility.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> HTML, CSS, JavaScript, GitHub Pages</p>
+    <p class="section-content">
+      <a href="https://github.com/mturan33/mturan33.github.io" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+  
     <h2>Skills</h2>
     <ul>
-      <li>Robotics & AI: CNNs, Gazebo, Isaac Sim, OpenCV, ROS, ROS2</li>
-      <li>Programming: Algorithms, C, C++, Java, Kotlin, Python, SQL</li>
-      <li>Frameworks & Tools: Android Studio, EJB, Git, Jakarta EE, JSF, Unreal Engine</li>
-      <li>Hardware Platforms: Jetson, Pixhawk</li>
-      <li>Other: APIs, Data Structures, English (Advanced), OOP</li>
+      <li><strong>Robotics & AI:</strong> CNNs, Gazebo, NVIDIA Isaac Sim, OpenCV, ROS, ROS2</li>
+      <li><strong>Programming Languages:</strong> C, C++, Java, Kotlin, Python, SQL</li>
+      <li><strong>Frameworks & Tools:</strong> Android Studio, EJB, Git, Jakarta EE, JSF, Unreal Engine</li>
+      <li><strong>Hardware Platforms:</strong> NVIDIA Jetson, Pixhawk</li>
+      <li><strong>Other:</strong> APIs, Data Structures, Object-Oriented Programming (OOP), Advanced English</li>
     </ul>
   </main>
 </body>
