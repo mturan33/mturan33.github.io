@@ -1,110 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mehmet Turan Yardımcı</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mehmet Turan Yardımcı - Portfolio</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
       margin: 0;
       padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: #0a2540; /* lacivert */
+      color: #e0e7ff; /* açık mavi / pastel beyaz */
+      line-height: 1.6;
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
     h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.125rem;
-      margin-bottom: 1.5rem;
-    }
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 2rem;
-    }
-    a.button {
-      border: 1px solid #d1d5db;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      color: #111827;
-      display: inline-block;
-    }
-    section {
-      margin-bottom: 3rem;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 0.3rem;
+      color: #c7d2fe; /* açık mavi */
     }
     h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    .card {
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 20px;
+      border-bottom: 2px solid #374151;
+      padding-bottom: 6px;
+      margin-top: 2.5rem;
       margin-bottom: 1rem;
-      background-color: #fff;
+      font-weight: 700;
+      color: #a5b4fc;
+    }
+    h3 {
+      margin-top: 1.3rem;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #a5b4fc;
+    }
+    p, li {
+      font-size: 1rem;
+      color: #e0e7ff;
     }
     ul {
-      padding-left: 1rem;
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
     }
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .contact-info {
+      margin-top: 0.3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .section-content {
+      margin-left: 0.6rem;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Mehmet Turan Yardımcı</h1>
-    <p>Computer Engineering Student | Robotics & AI Enthusiast | Team Leader @ 1.5 Adana AGM Alkar</p>
-    <div class="button-row">
-      <a class="button" href="mailto:mehmetturanyardimci@hotmail.com">Email</a>
-      <a class="button" href="https://www.linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">LinkedIn</a>
-      <a class="button" href="https://github.com/mturan33" target="_blank">GitHub</a>
+    <h1>MEHMET TURAN YARDIMCI</h1>
+    <div style="text-align:center; margin-bottom:1.5rem;">
+    <img src="profile.jpg" alt="Mehmet Turan Yardımcı" 
+      style="width:150px; height:150px; border-radius:50%; object-fit:cover; border: 3px solid #a5b4fc;" />
     </div>
 
-    <section>
-      <h2>About Me</h2>
-      <p>I’m a final-year Computer Engineering student at Çukurova University with a strong focus on robotics, autonomous systems,
-        and AI. I led the 1.5 Adana AGM Alkar UAV team for 3 years and developed intelligent robotic solutions using ROS, YOLO,
-        and Gazebo. I'm passionate about building real-world autonomous systems that solve impactful problems.</p>
-    </section>
+    <div class="contact-info">
+      Türkiye | +90 532 705 48 45 | 
+      <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a> | 
+      <a href="https://linkedin.com/in/mehmet-turan-yardımcı-02bb01223" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+      <a href="https://github.com/mturan33" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
 
-    <section>
-      <h2>Projects</h2>
-      <div class="card">
-        <h3>Benchmark Local Path Planners (BARN Challenge)</h3>
-        <p>Developed a benchmarking framework in ROS to evaluate local planners like DWA and TEB on the BARN dataset
-          for cluttered environments. Visualized and compared performance across scenarios.</p>
-      </div>
-      <div class="card">
-        <h3>PID Controller with LEGO NXT</h3>
-        <p>Implemented a PID algorithm on LEGO Mindstorms NXT for real-time motor control using sensor feedback.</p>
-      </div>
-      <div class="card">
-        <h3>Weather Forecast App</h3>
-        <p>Built a weather app in Kotlin using OpenWeather API, allowing users to check real-time weather by location.</p>
-      </div>
-    </section>
+    <p><strong>Computer Engineer | Intelligent Robotic Systems</strong></p>
+    <ul>
+      <li>Computer Engineering graduate specialized in robotics, AI, and autonomous systems</li>
+      <li>Led a university UAV team (1.5 Adana AGM ALKAR) for 3 years, managing projects with YOLO, ROS1/2, Gazebo</li>
+      <li>Developed object detection systems using YOLOv4–v8, integrated with Isaac Sim, Jetson Nano and Pixhawk</li>
+      <li>Final year project on local planner benchmarking (BARN dataset) is under publication review</li>
+      <li>Passionate about contributing to high-impact R&D teams building real-world intelligent systems</li>
+    </ul>
 
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>Robotics: ROS, Gazebo, Isaac Sim, Jetson, Pixhawk</li>
-        <li>AI: YOLOv4–v8, OpenCV, CNNs</li>
-        <li>Languages: Python, C/C++, Java, Kotlin, SQL</li>
-        <li>Tools: Git, Android Studio, Jakarta EE, Unreal Engine</li>
-      </ul>
-    </section>
+    <h2>Work Experience</h2>
+    <h3>Medcem — Computer Engineer Intern</h3>
+    <p class="section-content"><em>07/2025 - 08/2025, Mersin/Silifke (Internship)</em></p>
+    <ul class="section-content">
+      <li>Supported in-house software development using .NET and C#</li>
+      <li>Designed and implemented algorithmic solutions for cement production automation</li>
+      <li>Gained hands-on experience in software architecture, debugging, and UI design</li>
+    </ul>
+
+    <h3>1.5 Adana AGM Alkar — Team Leader</h3>
+    <p class="section-content"><em>01/2022 - 07/2025, Adana, Türkiye (Part-time)</em></p>
+    <ul class="section-content">
+      <li>Managed a 10+ member team in designing autonomous UAV systems</li>
+      <li>Led participation in TUBITAK and TEKNOFEST competitions with award-winning results</li>
+      <li>Designed AI-based image processing modules for autonomous navigation</li>
+      <li>Integrated ROS-based pipelines using YOLOv5, Jetson Nano, and Pixhawk flight stack</li>
+    </ul>
+
+    <h2>Education</h2>
+    <h3>Çukurova Üniversitesi — Bachelor's degree in Computer Engineering (English)</h3>
+    <p class="section-content"><em>10/2021 - 07/2025, Adana, Turkey</em></p>
+
+    <h3>Białystok University of Technology — Erasmus+ Bachelor's degree, Computer Science</h3>
+    <p class="section-content"><em>01/2024 - 01/2025</em></p>
+
+    <h2>Certifications</h2>
+    <ul class="section-content">
+      <li>Supervised Machine Learning: Regression and Classification — Coursera</li>
+    </ul>
+
+    <h2>Projects</h2>
+    <h3>Benchmark Local Path Planners BARN Challenge</h3>
+    <p class="section-content">
+      Developed a benchmarking framework to evaluate local path planners in complex and cluttered environments using ROS and the BARN dataset. 
+      The system integrates multiple planning algorithms and evaluates their performance under robot navigation scenarios. A related paper will be published soon.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> ROS, Gazebo, Python, NumPy, Matplotlib, RViz, Git</p>
+
+    <h3>PID Implementation with NXT Robot</h3>
+    <p class="section-content">
+      Implemented a PID control algorithm on LEGO Mindstorms NXT robots to enable motor control using real-time sensor feedback.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> NotExactlyC (NXC), Bricx Command Center, PID Controller</p>
+
+    <h3>Bank Application And Its Tests With JUnit</h3>
+    <p class="section-content">
+      Developed a banking application in Java with unit testing using JUnit. Test coverage is reported using the JaCoCo plugin via Maven integration. Deployed with Glassfish.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> Java, Jakarta EE, JUnit, Maven, JaCoCo, Glassfish</p>
+
+    <h3>Weather Application</h3>
+    <p class="section-content">
+      Created a weather forecasting mobile application using Kotlin and the OpenWeather API. It provides real-time weather data based on the user’s location or an selected location.
+    </p>
+    <p class="section-content"><strong>Technologies:</strong> Kotlin, Android Studio, REST API</p>
+
+    <h2>Skills</h2>
+    <ul>
+      <li>Robotics & AI: CNNs, Gazebo, Isaac Sim, OpenCV, ROS, ROS2</li>
+      <li>Programming: Algorithms, C, C++, Java, Kotlin, Python, SQL</li>
+      <li>Frameworks & Tools: Android Studio, EJB, Git, Jakarta EE, JSF, Unreal Engine</li>
+      <li>Hardware Platforms: Jetson, Pixhawk</li>
+      <li>Other: APIs, Data Structures, English (Advanced), OOP</li>
+    </ul>
   </main>
 </body>
 </html>
