@@ -1,246 +1,729 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mehmet Turan Yardımcı - Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehmet Turan Yardimci - Robot Learning Researcher</title>
+  <meta name="description" content="Computer Engineering graduate specializing in robot learning, reinforcement learning, and humanoid locomotion. Building RL systems for Unitree G1 humanoid in NVIDIA Isaac Lab.">
   <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-card: #ffffff;
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --border: #e2e8f0;
+      --tag-bg: #f1f5f9;
+      --tag-text: #334155;
+      --radius: 8px;
+      --max-w: 820px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
-      padding: 24px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background-color: #0a2540; /* lacivert */
-      color: #e0e7ff; /* açık mavi / pastel beyaz */
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
     }
+
     main {
-      max-width: 900px;
+      max-width: var(--max-w);
       margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
     }
-    h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 0.3rem;
-      color: #c7d2fe; /* açık mavi */
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    h2 {
-      border-bottom: 2px solid #374151;
-      padding-bottom: 6px;
-      margin-top: 2.5rem;
+
+    .header-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-light);
       margin-bottom: 1rem;
-      font-weight: 700;
-      color: #a5b4fc;
     }
-    h3 {
-      margin-top: 1.3rem;
-      margin-bottom: 0.3rem;
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .header .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .header .bio {
+      max-width: 620px;
+      margin: 0 auto 1.2rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-links a:hover { text-decoration: underline; }
+
+    .cv-btn {
+      display: inline-block;
+      padding: 0.5rem 1.4rem;
+      border: 2px solid var(--accent);
+      color: var(--accent);
       font-weight: 600;
-      color: #a5b4fc;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: all 0.2s;
     }
-    p, li {
-      font-size: 1rem;
-      color: #e0e7ff;
+    .cv-btn:hover {
+      background: var(--accent);
+      color: #fff;
     }
-    ul {
+
+    /* ===== SECTIONS ===== */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ===== RESEARCH INTERESTS ===== */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .interest-item {
+      background: var(--bg-alt);
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.92rem;
+      border-left: 3px solid var(--accent);
+    }
+    .interest-item strong { display: block; margin-bottom: 0.15rem; }
+
+    /* ===== FEATURED PROJECT ===== */
+    .featured {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .featured h2 {
+      border-bottom: none;
+      padding-bottom: 0;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .featured .feat-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .media-placeholder {
+      background: #e2e8f0;
+      border-radius: var(--radius);
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      border: 2px dashed var(--border);
+    }
+
+    .feat-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .metric {
+      text-align: center;
+      padding: 0.8rem;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .metric .num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+    }
+    .metric .label {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pipeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      font-size: 0.85rem;
+    }
+    .pipeline .stage {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .pipeline .arrow {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .feat-desc {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .feat-desc ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .feat-desc li { margin-bottom: 0.3rem; }
+
+    /* ===== TAGS ===== */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .feat-links { margin-top: 1rem; }
+    .feat-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-right: 1.5rem;
+    }
+    .feat-links a:hover { text-decoration: underline; }
+
+    /* ===== PROJECT CARDS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .card-thumb {
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .project-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .project-card a:hover { text-decoration: underline; }
+
+    /* ===== EDUCATION / EXPERIENCE ===== */
+    .timeline-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-item .date {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-item .org {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.92rem;
+    }
+
+    .timeline-item ul {
       padding-left: 1.2rem;
       margin-top: 0.3rem;
     }
-    li {
-      margin-bottom: 0.4rem;
+    .timeline-item li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.2rem;
     }
-    a {
-      color: #60a5fa;
-      text-decoration: none;
+
+    /* ===== SKILLS ===== */
+    .skills-group {
+      margin-bottom: 1rem;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .contact-info {
-      margin-top: 0.3rem;
-      margin-bottom: 1.5rem;
+    .skills-group .label {
       font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
     }
-    .section-content {
-      margin-left: 0.6rem;
+
+    /* ===== PUBLICATIONS ===== */
+    .pub-item {
+      padding: 0.6rem 0;
+      font-size: 0.92rem;
     }
-    .cv-button {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      padding: 10px 18px;
-      border: 2px solid #a5b4fc;
-      color: #a5b4fc;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+    .pub-item .title { font-weight: 600; }
+    .pub-item .authors { color: var(--text-secondary); font-size: 0.85rem; }
+    .pub-item .venue { color: var(--text-secondary); font-style: italic; font-size: 0.85rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
     }
-    .cv-button:hover {
-      background-color: #a5b4fc;
-      color: #0a2540;
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 1.6rem; }
+      .interests-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .feat-metrics { grid-template-columns: 1fr; }
+      .featured { padding: 1.2rem; }
+      .pipeline { font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>MEHMET TURAN YARDIMCI</h1>
 
-    <div style="text-align:center; margin-bottom:1.5rem;">
-      <img src="profile.jpg" alt="Mehmet Turan Yardımcı" 
-        style="width:150px; height:150px; border-radius:50%; object-fit:cover; border: 3px solid #a5b4fc;" />
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+      <img src="profile.jpg" alt="Mehmet Turan Yardimci" class="header-photo">
+      <h1>Mehmet Turan Yardimci</h1>
+      <div class="subtitle">Computer Engineering Graduate &middot; Robot Learning Researcher</div>
+      <p class="bio">
+        Building reinforcement learning systems for humanoid robot whole-body control.
+        Currently developing a hierarchical VLM-RL loco-manipulation pipeline for the Unitree G1
+        humanoid in NVIDIA Isaac Lab.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a>
+        <a href="https://github.com/mturan33" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">LinkedIn</a>
+      </div>
+      <a href="CV_English.pdf" class="cv-btn" download>Download CV</a>
     </div>
 
-    <div class="contact-info">
-      Türkiye | +90 532 705 48 45 | 
-      <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a> | 
-      <a href="https://linkedin.com/in/mehmet-turan-yardımcı-02bb01223" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
-      <a href="https://github.com/mturan33" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-
-    <a href="CV_English.pdf" class="cv-button" download>Download CV</a>
-
+    <!-- ===== RESEARCH INTERESTS ===== -->
     <section>
-      <p>
-        I am Mehmet Turan Yardımcı, a Computer Engineering graduate from Çukurova University’s English program, specializing in robotics, computer vision, and autonomous systems.
-        During my studies, I led the 1.5 Adana Savaşan UAV Team for 3 years, gaining extensive leadership, project management, and teamwork experience in designing autonomous UAVs.
-      </p>
-      <p>
-        My graduation thesis involved benchmarking local path planners using the BARN dataset. Currently, my paper is under review for publication in the Çukurova Journal of Science and Engineering.
-      </p>
-      <p>
-        I have hands-on experience with ROS1/2, Gazebo, NVIDIA Isaac Sim, and object detection using YOLO versions 4 through 8, integrating these with hardware platforms such as Jetson Nano and Pixhawk Orange Cube.
-      </p>
-      <p>
-        My main programming language is C++, complemented by knowledge of C, Python, and C#. To enhance simulation and development skills, I explore Unreal Engine and have experience with .NET, SAP, Android Studio, and various IDEs.
-      </p>
-      <p>
-        Passionate about intelligent robotic systems, I aim to contribute to impactful R&D teams, working on autonomous decision-making and navigation challenges in robotics.
-        I am eager to apply my skills and grow through innovative, real-world projects.
-      </p>
+      <h2>Research Interests</h2>
+      <div class="interests-grid">
+        <div class="interest-item">
+          <strong>Robot Learning</strong>
+          Reinforcement learning for locomotion and whole-body manipulation
+        </div>
+        <div class="interest-item">
+          <strong>Vision-Language Models</strong>
+          VLM-guided task planning for robotic manipulation
+        </div>
+        <div class="interest-item">
+          <strong>Sim-to-Real Transfer</strong>
+          Domain randomization and curriculum learning for real-world deployment
+        </div>
+        <div class="interest-item">
+          <strong>Autonomous Systems</strong>
+          UAV navigation, path planning, and multi-agent coordination
+        </div>
+      </div>
     </section>
 
-    <h2>Work Experience</h2>
-    <h3>Medcem — Computer Engineer Intern</h3>
-    <p class="section-content"><em>07/2025 - 08/2025, Mersin/Silifke (Internship)</em></p>
-    <ul class="section-content">
-      <li>Supported in-house software development using .NET and C#</li>
-      <li>Designed and implemented algorithmic solutions for cement production automation</li>
-      <li>Gained hands-on experience in software architecture, debugging, and UI design</li>
-    </ul>
+    <!-- ===== FEATURED PROJECT ===== -->
+    <div class="featured">
+      <h2>Isaac G1 Humanoid VLM-RL Loco-Manipulation</h2>
+      <p class="feat-subtitle">
+        Hierarchical reinforcement learning system for Unitree G1 humanoid robot &mdash;
+        whole-body control with 43 degrees of freedom and Vision-Language Model integration.
+      </p>
 
-    <h3>1.5 Adana AGM Alkar — Team Leader</h3>
-    <p class="section-content"><em>01/2022 - 07/2025, Adana, Türkiye (Part-time)</em></p>
-    <ul class="section-content">
-      <li>Led a team of 10+ members designing autonomous UAV systems</li>
-      <li>Managed award-winning projects in TUBITAK and TEKNOFEST competitions</li>
-      <li>Developed AI-based image processing modules for autonomous navigation</li>
-      <li>Integrated ROS pipelines with YOLOv5, Jetson Nano, and Pixhawk flight controllers</li>
-    </ul>
+      <img src="g1_stage7_reaching_showcase.gif" alt="G1 Humanoid Arm Reaching Demo" style="width:100%; border-radius:var(--radius);">
 
-    <h2>Education</h2>
-    <h3>Çukurova Üniversitesi — Bachelor's Degree in Computer Engineering (English)</h3>
-    <p class="section-content"><em>10/2021 - 07/2025, Adana, Turkey</em></p>
+      <div class="feat-metrics">
+        <div class="metric">
+          <span class="num">43</span>
+          <span class="label">Degrees of Freedom</span>
+        </div>
+        <div class="metric">
+          <span class="num">4,096</span>
+          <span class="label">Parallel Environments</span>
+        </div>
+        <div class="metric">
+          <span class="num">17K+</span>
+          <span class="label">Steps / Second</span>
+        </div>
+      </div>
 
-    <h3>Białystok University of Technology — Erasmus+ Exchange, Computer Science (English)</h3>
-    <p class="section-content"><em>01/2024 - 01/2025</em></p>
+      <div class="feat-desc">
+        <strong>Multi-Stage Curriculum Training Pipeline:</strong>
+      </div>
 
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Robotics & AI:</strong> CNNs, Gazebo, NVIDIA Isaac Sim, OpenCV, ROS, ROS2</li>
-      <li><strong>Programming Languages:</strong> C, C++, Java, Kotlin, Python, SQL</li>
-      <li><strong>Frameworks & Tools:</strong> Android Studio, EJB, Git, Jakarta EE, JSF, Unreal Engine</li>
-      <li><strong>Hardware Platforms:</strong> NVIDIA Jetson, Pixhawk</li>
-      <li><strong>Other:</strong> APIs, Data Structures, Object-Oriented Programming (OOP), Advanced English</li>
-    </ul>
+      <div class="pipeline">
+        <span class="stage">Standing</span><span class="arrow">&rarr;</span>
+        <span class="stage">Locomotion</span><span class="arrow">&rarr;</span>
+        <span class="stage">Torso Control</span><span class="arrow">&rarr;</span>
+        <span class="stage">Dual Arm Reaching</span><span class="arrow">&rarr;</span>
+        <span class="stage">Grasping</span><span class="arrow">&rarr;</span>
+        <span class="stage">Loco-Manipulation</span>
+      </div>
 
-    <h2>Certifications</h2>
-    <ul class="section-content">
-      <li>Supervised Machine Learning: Regression and Classification — Coursera</li>
-    </ul>
+      <div class="feat-desc">
+        <ul>
+          <li><strong>Triple Actor-Critic architecture:</strong> Separate policies for locomotion (legs + waist), arm reaching (shoulders + elbows + wrists), and hand control (DEX3 3-finger dexterous hands)</li>
+          <li><strong>Dual Actor-Critic loco-manipulation:</strong> Decoupled locomotion and arm policies trained sequentially with curriculum learning, achieving coordinated walking and reaching</li>
+          <li><strong>Anti-gaming mechanisms:</strong> Absolute target sampling, 3-condition reach validation, movement-centric rewards to prevent curriculum exploitation</li>
+          <li><strong>29-DoF whole-body model:</strong> 12 leg + 3 waist + 8 arm + 6 wrist joints, with 14 DEX3 finger joints for grasping</li>
+          <li><strong>Goal task:</strong> Squat, pick object from ground, stand up, walk to table, place object in box</li>
+        </ul>
+      </div>
 
-    <h2>Projects</h2>
+      <div class="tags">
+        <span class="tag">NVIDIA Isaac Lab</span>
+        <span class="tag">RSL-RL</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">PPO</span>
+        <span class="tag">Florence-2</span>
+        <span class="tag">CUDA</span>
+        <span class="tag">Curriculum RL</span>
+        <span class="tag">Domain Randomization</span>
+      </div>
 
-    <h3>Benchmark Local Path Planners BARN Challenge</h3>
-    <p class="section-content">
-      Developed a comprehensive benchmarking framework using ROS and the BARN dataset to evaluate local path planners in cluttered, complex environments.
-      The tool compares multiple algorithms (e.g., DWA, TEB) and assesses their navigation efficiency and reliability. The associated academic paper is pending publication.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> ROS, Gazebo, Python, NumPy, Matplotlib, RViz, Git</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/benchmark-local-path-planners-barn-challenge" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+      <div class="feat-links">
+        <a href="https://github.com/mturan33/isaac-g1-ulc-vlm" target="_blank">GitHub Repository &rarr;</a>
+      </div>
+    </div>
 
-    <h3>PID Implementation with NXT Robot</h3>
-    <p class="section-content">
-      Designed and implemented a PID controller on LEGO Mindstorms NXT robots for precise motor control with real-time sensor feedback.
-      The project uses NotExactlyC (NXC) language and Bricx Command Center IDE for programming and debugging.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> NotExactlyC (NXC), Bricx Command Center, PID Controller</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/PID_Implementation_With_NXT_Robot" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+    <!-- ===== OTHER PROJECTS ===== -->
+    <section>
+      <h2>Projects</h2>
+      <div class="projects-grid">
 
-    <h3>Bank Application and Unit Testing with JUnit</h3>
-    <p class="section-content">
-      Developed a banking system application in Java, focusing on robust unit testing using JUnit framework.
-      Utilized Maven for build automation and JaCoCo for coverage reporting. The app was deployed on Glassfish application server.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> Java, Jakarta EE, JUnit, Maven, JaCoCo, Glassfish</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/BankTestWJUnit" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+        <div class="project-card">
+          <img src="spot-rl-video-step-0.gif" alt="Anymal-C Quadruped" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>Isaac Lab Anymal-C Quadruped Locomotion</h3>
+          <p>PPO algorithm implemented from scratch for ANYmal-C quadruped robot. Achieved 17,000+ steps/sec training with domain randomization and reward shaping on RTX 5070 Ti.</p>
+          <div class="tags">
+            <span class="tag">Isaac Lab</span>
+            <span class="tag">PPO</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">CUDA</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/isaaclab-anymal-locomotion" target="_blank">View on GitHub &rarr;</a>
+        </div>
 
-    <h3>Weather Forecasting Mobile Application</h3>
-    <p class="section-content">
-      Created a Kotlin-based Android app that displays real-time weather data fetched from OpenWeather API.
-      Features include location-based weather info and a clean user interface.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> Kotlin, Android Studio, REST API</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/WeatherApp" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+        <div class="project-card">
+          <img src="ant_demo_2x2.gif" alt="MuJoCo Ant-v5" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>MuJoCo Ant-v5 PPO from Scratch</h3>
+          <p>PPO and SAC implemented with pure NumPy and PyTorch for MuJoCo Ant-v5. Achieved 2700+ reward by eliminating hopping through custom reward shaping. 16 parallel environments with GAE.</p>
+          <div class="tags">
+            <span class="tag">MuJoCo</span>
+            <span class="tag">PPO</span>
+            <span class="tag">SAC</span>
+            <span class="tag">NumPy</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/mujoco-ant-ppo" target="_blank">View on GitHub &rarr;</a>
+        </div>
 
-    <h3>1.5 Adana Alkar IHA Ground Control</h3>
-    <p class="section-content">
-      Developed ground control station software for UAV operations, focusing on real-time telemetry, waypoint navigation, and mission planning.
-      The system supports communication with UAVs using Pixhawk Orange Cube and RFD900 radios.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> C++, ROS, Qt, MAVLink, Pixhawk, RFD900</p>
-    <p class="section-content">
-      <a href="https://github.com/250420032005/1.5-Adana-Alkar-IHA-Ground-Control" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+        <div class="project-card">
+          <img src="actor-critic-cartpole.jpg" alt="Actor-Critic CartPole" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>Live Actor-Critic Training (CartPole)</h3>
+          <p>Interactive Streamlit web app demonstrating real-time RL training. Actor-Critic algorithm with adjustable hyperparameters for educational visualization.</p>
+          <div class="tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">Actor-Critic</span>
+            <span class="tag">Gymnasium</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/my-actor-critic" target="_blank">View on GitHub &rarr;</a>
+        </div>
 
-    <h3>Image Recognition Application</h3>
-    <p class="section-content">
-      Implemented an image recognition system using deep learning techniques to classify and detect objects in images.
-      The app integrates OpenCV for image processing and YOLO models for real-time detection.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> Python, OpenCV, YOLO, TensorFlow</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/ImageRecognitionApp" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+        <div class="project-card">
+          <img src="BARN-Figure1.GlobalvsLocal.png" alt="BARN Benchmark" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>BARN Benchmark: Local Path Planners</h3>
+          <p>Benchmarking framework using ROS and the BARN dataset to evaluate local path planners (DWA, TEB) in cluttered environments. Academic paper pending publication.</p>
+          <div class="tags">
+            <span class="tag">ROS</span>
+            <span class="tag">Gazebo</span>
+            <span class="tag">Python</span>
+            <span class="tag">Navigation</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/benchmark-local-path-planners-barn-challenge" target="_blank">View on GitHub &rarr;</a>
+        </div>
 
-    <h3>MKE ToDo Application</h3>
-    <p class="section-content">
-      Developed a simple yet effective ToDo task management app with CRUD functionalities and an intuitive UI.
-      Built to practice full-stack development skills, integrating front-end and back-end technologies.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> C#, .NET, Entity Framework, WPF</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/MKE_ToDo" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
+        <div class="project-card">
+          <img src="yolo.png" alt="YOLOv7 UAV Detection" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>YOLOv7 Fixed-Wing UAV Detection</h3>
+          <p>Real-time object detection system for autonomous UAV operations using YOLOv7, integrated with Jetson Nano and Pixhawk flight controllers for TEKNOFEST competitions.</p>
+          <div class="tags">
+            <span class="tag">YOLO</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Jetson Nano</span>
+            <span class="tag">ROS</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33" target="_blank">View on GitHub &rarr;</a>
+        </div>
 
-    <h3>Personal Portfolio Website</h3>
-    <p class="section-content">
-      Created a personal portfolio website using GitHub Pages to showcase projects, skills, and contact information.
-      Designed with HTML, CSS, and JavaScript to ensure responsiveness and accessibility.
-    </p>
-    <p class="section-content"><strong>Technologies:</strong> HTML, CSS, JavaScript, GitHub Pages</p>
-    <p class="section-content">
-      <a href="https://github.com/mturan33/mturan33.github.io" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-    </p>
-  
+        <div class="project-card">
+          <img src="nxt-g-mindstorms-programing.jpg" alt="NXT Robot PID Control" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>PID Control with NXT Robot</h3>
+          <p>PID controller implemented on LEGO Mindstorms NXT robots for precise motor control with real-time sensor feedback, using NXC language.</p>
+          <div class="tags">
+            <span class="tag">PID</span>
+            <span class="tag">NXC</span>
+            <span class="tag">Control Systems</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/PID_Implementation_With_NXT_Robot" target="_blank">View on GitHub &rarr;</a>
+        </div>
 
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section>
+      <h2>Education</h2>
+
+      <div class="timeline-item">
+        <div class="date">Oct 2021 &mdash; Oct 2025</div>
+        <h3>Bachelor's Degree in Computer Engineering (English)</h3>
+        <div class="org">Cukurova University, Adana, Turkey</div>
+        <ul>
+          <li>GPA: 2.85 / 4.00</li>
+          <li>Thesis: Benchmarking Local Path Planners in ROS using the BARN Dataset</li>
+          <li>Focus: AI, robotics, pattern recognition, optimal control</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">Sep 2024 &mdash; Feb 2025</div>
+        <h3>Erasmus+ Exchange &mdash; Computer Science (English)</h3>
+        <div class="org">Bialystok University of Technology, Poland</div>
+        <ul>
+          <li>GPA: 4.9 / 5.0</li>
+          <li>Focus: Robotics, PID control, HCI, computer graphics</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section>
+      <h2>Experience</h2>
+
+      <div class="timeline-item">
+        <div class="date">Aug &mdash; Sep 2025</div>
+        <h3>Computer Engineering Intern</h3>
+        <div class="org">Kivanc Tekstil, Adana</div>
+        <ul>
+          <li>In-house software development with .NET and C#</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">Jul &mdash; Aug 2025</div>
+        <h3>Computer Engineering Intern</h3>
+        <div class="org">Medcem, Adana</div>
+        <ul>
+          <li>Algorithmic solutions for cement production automation</li>
+          <li>Software architecture, debugging, and UI design with .NET</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">Feb 2022 &mdash; Oct 2024</div>
+        <h3>Team Leader</h3>
+        <div class="org">1.5 Adana AGM Alkar UAV Team</div>
+        <ul>
+          <li>Led 10+ members designing autonomous UAV systems</li>
+          <li>TUBITAK and TEKNOFEST competition projects</li>
+          <li>AI-based image processing for autonomous navigation (YOLOv5, Jetson Nano, Pixhawk)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PUBLICATIONS ===== -->
+    <section>
+      <h2>Publications</h2>
+      <div class="pub-item">
+        <div class="title">Benchmarking Local Path Planners in ROS using the BARN Dataset</div>
+        <div class="authors">Yardimci, M.T., Cogurcu, Y.E.</div>
+        <div class="venue">Cukurova University Journal of the Faculty of Engineering (Pending Publication, 2026)</div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section>
+      <h2>Skills</h2>
+
+      <div class="skills-group">
+        <div class="label">Robot Learning</div>
+        <div class="tags">
+          <span class="tag">PPO</span>
+          <span class="tag">Actor-Critic</span>
+          <span class="tag">GAE</span>
+          <span class="tag">SAC</span>
+          <span class="tag">Reward Shaping</span>
+          <span class="tag">Domain Randomization</span>
+          <span class="tag">Curriculum Learning</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="label">Simulation</div>
+        <div class="tags">
+          <span class="tag">NVIDIA Isaac Lab</span>
+          <span class="tag">MuJoCo</span>
+          <span class="tag">Gazebo</span>
+          <span class="tag">RViz</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="label">AI / ML</div>
+        <div class="tags">
+          <span class="tag">PyTorch</span>
+          <span class="tag">TensorBoard</span>
+          <span class="tag">YOLO</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">CNNs</span>
+          <span class="tag">Florence-2</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="label">Programming</div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">C / C++</span>
+          <span class="tag">CUDA</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Git</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">ROS / ROS2</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="label">Hardware</div>
+        <div class="tags">
+          <span class="tag">NVIDIA Jetson</span>
+          <span class="tag">Pixhawk</span>
+          <span class="tag">RTX 5070 Ti</span>
+          <span class="tag">Unitree G1</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="label">Certifications</div>
+        <div class="tags">
+          <span class="tag">Supervised ML: Regression & Classification (Coursera)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>
+        <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a> &middot;
+        <a href="https://github.com/mturan33" target="_blank">GitHub</a> &middot;
+        <a href="https://linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">LinkedIn</a>
+      </p>
+    </footer>
 
   </main>
 </body>
