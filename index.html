@@ -105,6 +105,68 @@
       color: #fff;
     }
 
+    /* ===== LATEST PAPER HIGHLIGHT ===== */
+    .latest-paper {
+      background: var(--bg-alt);
+      border: 1px solid #93c5fd; /* Soft blue border to highlight */
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.05);
+    }
+    .latest-paper-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .latest-paper h2 {
+      border: none;
+      padding: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    .latest-paper .authors {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .latest-paper .venue {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+    }
+    .latest-paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .latest-paper-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 1.2rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .latest-paper-links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
     /* ===== SECTIONS ===== */
     section { margin-bottom: 2.5rem; }
 
@@ -159,19 +221,6 @@
       color: var(--text-secondary);
       margin-bottom: 1.2rem;
       font-size: 0.95rem;
-    }
-
-    .media-placeholder {
-      background: #e2e8f0;
-      border-radius: var(--radius);
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      border: 2px dashed var(--border);
     }
 
     .feat-metrics {
@@ -349,9 +398,12 @@
     .pub-item {
       padding: 0.6rem 0;
       font-size: 0.92rem;
+      border-bottom: 1px solid var(--border);
     }
+    .pub-item:last-child { border-bottom: none; }
+    
     .pub-item .title { font-weight: 600; }
-    .pub-item .authors { color: var(--text-secondary); font-size: 0.85rem; }
+    .pub-item .authors { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
     .pub-item .venue { color: var(--text-secondary); font-style: italic; font-size: 0.85rem; }
 
     /* ===== FOOTER ===== */
@@ -380,7 +432,6 @@
 <body>
   <main>
 
-    <!-- ===== HEADER ===== -->
     <div class="header">
       <img src="profile.jpg" alt="Mehmet Turan Yardimci" class="header-photo">
       <h1>Mehmet Turan Yardimci</h1>
@@ -398,7 +449,17 @@
       <a href="CV_English.pdf" class="cv-btn" download>Download CV</a>
     </div>
 
-    <!-- ===== RESEARCH INTERESTS ===== -->
+    <div class="latest-paper">
+      <span class="latest-paper-badge">Latest Paper</span>
+      <h2>Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</h2>
+      <div class="authors">Mehmet Turan Yardımcı</div>
+      <div class="venue">ICRA 2026 &middot; Workshop on Reinforcement Learning in the Era of Imitation Learning (RL4IL) &middot; Vienna, Austria</div>
+      <div class="latest-paper-links">
+        <a href="https://openreview.net/pdf?id=QTQk2HlCbs" target="_blank">📄 Read PDF</a>
+        <a href="https://openreview.net/forum?id=QTQk2HlCbs" target="_blank">🔗 OpenReview</a>
+      </div>
+    </div>
+
     <section>
       <h2>Research Interests</h2>
       <div class="interests-grid">
@@ -421,7 +482,6 @@
       </div>
     </section>
 
-    <!-- ===== FEATURED PROJECT ===== -->
     <div class="featured">
       <h2>Isaac G1 Humanoid VLM-RL Loco-Manipulation</h2>
       <p class="feat-subtitle">
@@ -485,7 +545,6 @@
       </div>
     </div>
 
-    <!-- ===== OTHER PROJECTS ===== -->
     <section>
       <h2>Projects</h2>
       <div class="projects-grid">
@@ -575,7 +634,6 @@
       </div>
     </section>
 
-    <!-- ===== EDUCATION ===== -->
     <section>
       <h2>Education</h2>
 
@@ -601,7 +659,6 @@
       </div>
     </section>
 
-    <!-- ===== EXPERIENCE ===== -->
     <section>
       <h2>Experience</h2>
 
@@ -636,9 +693,15 @@
       </div>
     </section>
 
-    <!-- ===== PUBLICATIONS ===== -->
     <section>
       <h2>Publications</h2>
+      
+      <div class="pub-item">
+        <div class="title">Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</div>
+        <div class="authors">Yardimci, M.T.</div>
+        <div class="venue">ICRA Workshop on Reinforcement Learning in the Era of Imitation Learning (2026)</div>
+      </div>
+
       <div class="pub-item">
         <div class="title">Benchmarking Local Path Planners in ROS using the BARN Dataset</div>
         <div class="authors">Yardimci, M.T., Cogurcu, Y.E.</div>
@@ -646,7 +709,6 @@
       </div>
     </section>
 
-    <!-- ===== SKILLS ===== -->
     <section>
       <h2>Skills</h2>
 
@@ -716,7 +778,6 @@
       </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
       <p>
         <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a> &middot;
