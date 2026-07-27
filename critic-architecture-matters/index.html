@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</title>
+  <meta name="description" content="ICRA 2026 RL4IL workshop paper. A controlled comparison of dual and unified critic architectures for whole-body loco-manipulation on the Unitree G1 in NVIDIA Isaac Lab.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --border: #e2e8f0;
+      --tag-bg: #f1f5f9;
+      --warn-bg: #fffbeb;
+      --warn-border: #f59e0b;
+      --warn-text: #78350f;
+      --radius: 8px;
+      --max-w: 820px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    a { color: var(--accent); }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .header h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      margin-bottom: 0.9rem;
+    }
+    .header .authors {
+      font-size: 1.02rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .header .orcid {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    .header .orcid a { text-decoration: none; }
+    .header .orcid a:hover { text-decoration: underline; }
+    .header .venue {
+      font-size: 0.93rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 1.4rem;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    .paper-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1.4rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .paper-links a:hover { background: var(--accent); color: #fff; }
+
+    /* ===== SECTIONS ===== */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+      color: var(--text);
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 1.2rem 0 0.35rem;
+    }
+
+    p { margin-bottom: 0.9rem; }
+
+    /* ===== VIDEO ===== */
+    video {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #000;
+    }
+    .caption {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+
+    /* ===== ABSTRACT ===== */
+    .abstract {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+      font-size: 0.96rem;
+    }
+    .abstract p:last-child { margin-bottom: 0; }
+    .abstract .note {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    /* ===== TABLE ===== */
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+    }
+    th, td {
+      padding: 0.65rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    thead th {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      border-bottom: 2px solid var(--border);
+    }
+    tbody td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+    thead th:not(:first-child) { text-align: right; }
+    .win { font-weight: 700; color: var(--accent); }
+    .tbl-note {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-top: 0.7rem;
+    }
+
+    /* ===== CAVEATS ===== */
+    .caveats {
+      background: var(--warn-bg);
+      border: 2px solid var(--warn-border);
+      border-radius: 12px;
+      padding: 1.8rem;
+    }
+    .caveats h2 {
+      border-bottom: 2px solid rgba(245, 158, 11, 0.35);
+      color: var(--warn-text);
+      margin-bottom: 0.9rem;
+    }
+    .caveats .lead {
+      font-weight: 600;
+      color: var(--warn-text);
+      font-size: 1rem;
+    }
+    .caveats ul { margin: 0.4rem 0 1rem 1.2rem; }
+    .caveats li { margin-bottom: 0.55rem; font-size: 0.95rem; }
+    .caveats .verdict {
+      background: #fff;
+      border-left: 4px solid var(--warn-border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      font-size: 0.96rem;
+    }
+    .caveats .verdict p:last-child { margin-bottom: 0; }
+
+    /* ===== BIBTEX ===== */
+    pre {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      overflow-x: auto;
+      font-size: 0.84rem;
+      line-height: 1.55;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.2rem;
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    footer a { text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.5rem; }
+      .paper-links a { flex: 1 1 100%; justify-content: center; }
+      .caveats, .abstract { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header class="header">
+    <h1>Critic Architecture Matters:<br>Dual vs. Unified Critics for Humanoid Loco-Manipulation</h1>
+    <div class="authors">Mehmet Turan Yardımcı</div>
+    <div class="orcid">
+      Çukurova University, Computer Engineering &middot;
+      <a href="https://orcid.org/0009-0004-8416-8368">ORCID 0009-0004-8416-8368</a>
+    </div>
+    <div class="venue">ICRA 2026 Workshop on Reinforcement Learning for Imitation Learning (RL4IL)</div>
+    <nav class="paper-links">
+      <a href="https://arxiv.org/abs/2606.11891">arXiv</a>
+      <a href="https://github.com/mturan33/isaac-g1-ulc">Code</a>
+      <a href="https://huggingface.co/mturan33/g1-dual-critic-locomanip">Models</a>
+    </nav>
+  </header>
+
+  <section>
+    <video controls loop muted playsinline preload="metadata" poster="">
+      <source src="g1_stage7_reaching_showcase.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      <a href="g1_stage7_reaching_showcase.mp4">Download the video</a>.
+    </video>
+    <p class="caption">Unitree G1 reaching toward a target during play evaluation (dual-critic policy, Isaac Lab).</p>
+  </section>
+
+  <section>
+    <h2>Abstract</h2>
+    <div class="abstract">
+      <p>Multi-objective reinforcement learning for humanoid robots must coordinate locomotion and
+      manipulation within a single policy. A natural design choice is whether to use a single
+      (unified) critic that estimates the combined value of all objectives, or separate (dual)
+      critics with disjoint reward signals. We present a controlled comparison on the Unitree G1
+      humanoid (23 active DoF) in NVIDIA Isaac Lab, training loco-manipulation policies through a
+      sequential curriculum spanning 13 levels from stationary reaching to walking with
+      variable-orientation targets. In standardized evaluation, dual-critic policies reach targets
+      3.5&times; faster (6.5 vs. 22.6 simulation steps), achieve 2&times; higher throughput
+      (14.3 vs. 7.0 validated reaches per 1,000 steps), and attain higher validated reach rates
+      (65.2% vs. 53.8%) compared to the unified-critic policy. Notably, additional anti-gaming
+      reward mechanisms provide no further improvement beyond the architectural change alone
+      (60.9% vs. 65.2%). These results have direct implications for the emerging paradigm of RL
+      fine-tuning of imitation-learned policies: when refining a pre-trained manipulation policy
+      with RL, a unified critic risks suppressing the learned behavior through competing
+      locomotion gradients. These findings demonstrate that critic architecture is a
+      primary&mdash;and often overlooked&mdash;design choice in multi-objective humanoid RL, with
+      greater impact than reward engineering on reaching efficiency.</p>
+      <p class="note">The 13-level curriculum described above is the one the dual-critic run
+      followed. The unified-critic run used a different, 40-level curriculum &mdash; see
+      <a href="#caveats">Experimental caveats</a> below.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Results</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Unified critic (S6u)</th>
+            <th>Dual critic (S6s)</th>
+            <th>Dual + anti-gaming (S7)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Steps to target</td>
+            <td>22.6</td>
+            <td class="win">6.5</td>
+            <td>5.8</td>
+          </tr>
+          <tr>
+            <td>Throughput (validated reaches / 1,000 steps)</td>
+            <td>7.0</td>
+            <td class="win">14.3</td>
+            <td>13.0</td>
+          </tr>
+          <tr>
+            <td>Validated reach rate</td>
+            <td>53.8%</td>
+            <td class="win">65.2%</td>
+            <td>60.9%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Standing evaluation: 3,000 steps, one environment, deterministic actions,
+    seed 42. Adding five anti-gaming reward mechanisms on top of the dual critic (S7) does not
+    improve on the architectural change alone.</p>
+  </section>
+
+  <section id="caveats">
+    <div class="caveats">
+      <h2>Experimental caveats</h2>
+      <p class="lead">These numbers come from a single pair of training runs, and those runs
+      differ in more than the critic. What follows is what was <em>not</em> held constant.</p>
+
+      <ul>
+        <li><strong>The two runs did not train on the same curriculum.</strong> The unified-critic
+        run used a 40-level ladder (reaching &rarr; orientation &rarr; gripper &rarr;
+        height/payload); the dual-critic run used a 13-level one (standing &rarr; walking &rarr;
+        fixed orientation &rarr; arbitrary orientation out to an 80&deg; cone). These are
+        different schedules, not long and short versions of one. When its checkpoint was saved the
+        unified policy was at level 10 of 40 &mdash; <em>standing still</em>, 0.05&nbsp;m
+        tolerance, fixed palm-down orientation &mdash; while the dual policy had completed 12 of
+        12: <em>walking at up to 0.6&nbsp;m/s</em> with an arbitrary commanded palm direction at
+        0.04&nbsp;m tolerance.</li>
+
+        <li><strong>Different locomotion reward.</strong> One of the fourteen locomotion weights
+        differs: forward velocity tracking, 3.0 in the unified script against 5.0 in the dual one.
+        This was active for the entire length of both runs.</li>
+
+        <li><strong>Different arm action dimensionality.</strong> The unified policy's arm actor
+        emits 12 values (5 arm + 7 finger) against the dual policy's 5. The seven finger outputs
+        were sampled and entered the policy update, but never reached the robot &mdash; finger
+        control activates at curriculum level 20 and the run ended at 10 &mdash; and they are
+        discarded at evaluation. The confound is in exploration and policy entropy rather than in
+        the task performed.</li>
+
+        <li><strong>Single seed.</strong> The training scripts set no random seed at all, so each
+        arm is one run with no variance estimate. The evaluation harness does seed itself, so the
+        two policies are compared on matched target sequences.</li>
+
+        <li><strong>Parallel environments.</strong> 2048 for the dual-critic run and 4096 for the
+        anti-gaming run, both recorded. The unified run's launch flags were never saved; 2048 is
+        inferred from a reach-counter ceiling argument, not read from a config.</li>
+      </ul>
+
+      <div class="verdict">
+        <p><strong>What this means.</strong> The evaluation itself is apples-to-apples &mdash; one
+        harness, one shared locomotion branch, matched target sequences &mdash; so the measured gap
+        between these two checkpoints is real. The causal claim is not. With the curricula laid
+        side by side, the simpler explanation for the gap is training progress: the two policies
+        finished on tasks of very different difficulty, and the slower one had last been trained to
+        stand still.</p>
+        <p><strong>Critic architecture is therefore a hypothesis here, not an established cause.</strong>
+        A controlled ablation &mdash; one curriculum, one action space, one reward set, only the
+        critic swapped, across several seeds &mdash; is underway; these runs should be read as its
+        starting point. Every training script now writes a full <code>run_config.json</code> so
+        that any future pair can be checked field by field before being called a comparison.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Citation</h2>
+    <pre>@article{yardimci2026critic,
+  title   = {Critic Architecture Matters: Dual vs. Unified Critics for
+             Humanoid Loco-Manipulation},
+  author  = {Yard{\i}mc{\i}, Mehmet Turan},
+  journal = {arXiv preprint arXiv:2606.11891},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2606.11891},
+  url     = {https://github.com/mturan33/isaac-g1-ulc},
+  note    = {ICRA 2026 Workshop on Reinforcement Learning for
+             Imitation Learning (RL4IL)}
+}</pre>
+  </section>
+
+  <footer>
+    <a href="../">&larr; Back to mturan33.github.io</a>
+  </footer>
+
+</main>
+</body>
+</html>
