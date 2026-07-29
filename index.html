@@ -4,9 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mehmet Turan Yardimci - Robot Learning Researcher</title>
-  <meta name="description" content="Computer Engineering graduate specializing in robot learning, reinforcement learning, and humanoid locomotion. Building RL systems for Unitree G1 humanoid in NVIDIA Isaac Lab.">
+  <meta name="description" content="Incoming M.Sc. student at Karlsruhe Institute of Technology. Robot learning research on RL fine tuning of vision language action policies and hierarchical control for humanoid robots, in NVIDIA Isaac Lab and LeRobot.">
+  <meta name="author" content="Mehmet Turan Yardimci">
+  <meta name="keywords" content="robot learning, reinforcement learning, vision language action, VLA, SmolVLA, flow matching policy, humanoid robot, Unitree G1, NVIDIA Isaac Lab, LeRobot, LIBERO, PPO, sim to real, KIT, Karlsruhe Institute of Technology">
+  <link rel="canonical" href="https://mturan33.github.io/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Mehmet Turan Yardimci - Robot Learning Researcher">
+  <meta property="og:description" content="Incoming M.Sc. student at Karlsruhe Institute of Technology. RL fine tuning of vision language action policies, and hierarchical control for humanoid robots.">
+  <meta property="og:url" content="https://mturan33.github.io/">
+  <meta property="og:image" content="https://mturan33.github.io/profile.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mehmet Turan Yardimci",
+    "alternateName": "Mehmet Turan Yardımcı",
+    "url": "https://mturan33.github.io/",
+    "image": "https://mturan33.github.io/profile.jpg",
+    "email": "mehmetturanyardimci@hotmail.com",
+    "jobTitle": "Robot Learning Researcher",
+    "description": "Incoming M.Sc. student in Computer Science at the Karlsruhe Institute of Technology, working on reinforcement learning fine tuning of vision language action policies and on hierarchical control for humanoid robots.",
+    "knowsAbout": [
+      "Reinforcement learning",
+      "Robot learning",
+      "Vision language action models",
+      "Flow matching policies",
+      "Humanoid loco manipulation",
+      "NVIDIA Isaac Lab",
+      "LeRobot",
+      "Sim to real transfer"
+    ],
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Cukurova University",
+        "url": "https://www.cu.edu.tr/"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Bialystok University of Technology",
+        "url": "https://pb.edu.pl/en/"
+      }
+    ],
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Karlsruhe Institute of Technology",
+      "url": "https://www.kit.edu/english/"
+    },
+    "sameAs": [
+      "https://github.com/mturan33",
+      "https://www.linkedin.com/in/mehmetturanyardimci/",
+      "https://scholar.google.com/citations?user=t-aymboAAAAJ"
+    ]
+  }
+  </script>
+
   <style>
     :root {
+      color-scheme: light dark;
       --bg: #ffffff;
       --bg-alt: #f8fafc;
       --bg-card: #ffffff;
@@ -19,6 +79,21 @@
       --tag-text: #334155;
       --radius: 8px;
       --max-w: 820px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1319;
+        --bg-alt: #161b23;
+        --bg-card: #161b23;
+        --text: #e6e8ec;
+        --text-secondary: #a3abb8;
+        --accent: #7cb0f0;
+        --accent-light: #1c2a3d;
+        --border: #262d38;
+        --tag-bg: #1c222c;
+        --tag-text: #c2c9d4;
+      }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,7 +143,7 @@
     }
 
     .header .bio {
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 auto 1.2rem;
       color: var(--text-secondary);
       font-size: 0.95rem;
@@ -102,22 +177,27 @@
     }
     .cv-btn:hover {
       background: var(--accent);
-      color: #fff;
+      color: var(--bg);
+    }
+    .cv-note {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
     }
 
     /* ===== LATEST PAPER HIGHLIGHT ===== */
     .latest-paper {
       background: var(--bg-alt);
-      border: 1px solid #93c5fd; /* Soft blue border to highlight */
+      border: 1px solid var(--accent);
       border-radius: 12px;
       padding: 1.8rem;
       margin-bottom: 2.5rem;
-      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.05);
     }
     .latest-paper-badge {
       display: inline-block;
       background: var(--accent);
-      color: #ffffff;
+      color: var(--bg);
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -143,6 +223,11 @@
       font-size: 0.9rem;
       font-style: italic;
       color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    .latest-paper .abstract {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
       margin-bottom: 1.2rem;
     }
     .latest-paper-links {
@@ -164,7 +249,7 @@
     }
     .latest-paper-links a:hover {
       background: var(--accent);
-      color: #fff;
+      color: var(--bg);
     }
 
     /* ===== SECTIONS ===== */
@@ -197,8 +282,9 @@
       border-radius: var(--radius);
       font-size: 0.92rem;
       border-left: 3px solid var(--accent);
+      color: var(--text-secondary);
     }
-    .interest-item strong { display: block; margin-bottom: 0.15rem; }
+    .interest-item strong { display: block; margin-bottom: 0.15rem; color: var(--text); }
 
     /* ===== FEATURED PROJECT ===== */
     .featured {
@@ -282,6 +368,23 @@
       margin-top: 0.5rem;
     }
     .feat-desc li { margin-bottom: 0.3rem; }
+    .feat-desc strong { color: var(--text); }
+
+    figcaption {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .disclaimer {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
 
     /* ===== TAGS ===== */
     .tags {
@@ -320,6 +423,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.2rem;
+      background: var(--bg-card);
       transition: box-shadow 0.2s;
     }
     .project-card:hover {
@@ -396,15 +500,33 @@
 
     /* ===== PUBLICATIONS ===== */
     .pub-item {
-      padding: 0.6rem 0;
+      padding: 0.7rem 0;
       font-size: 0.92rem;
       border-bottom: 1px solid var(--border);
     }
     .pub-item:last-child { border-bottom: none; }
-    
+
     .pub-item .title { font-weight: 600; }
     .pub-item .authors { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
     .pub-item .venue { color: var(--text-secondary); font-style: italic; font-size: 0.85rem; }
+    .pub-item .pub-links { margin-top: 0.3rem; font-size: 0.83rem; }
+    .pub-item .pub-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+    .pub-item .pub-links a:hover { text-decoration: underline; }
+
+    /* ===== FACT LIST ===== */
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .facts strong { color: var(--text); }
 
     /* ===== FOOTER ===== */
     footer {
@@ -424,6 +546,7 @@
       .interests-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .feat-metrics { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: 1fr; }
       .featured { padding: 1.2rem; }
       .pipeline { font-size: 0.78rem; }
     }
@@ -435,29 +558,97 @@
     <div class="header">
       <img src="profile.jpg" alt="Mehmet Turan Yardimci" class="header-photo">
       <h1>Mehmet Turan Yardimci</h1>
-      <div class="subtitle">Computer Engineering Graduate &middot; Robot Learning Researcher</div>
+      <div class="subtitle">Incoming M.Sc. Computer Science, Karlsruhe Institute of Technology &middot; Robot Learning</div>
       <p class="bio">
-        Building reinforcement learning systems for humanoid robot whole-body control.
-        Currently developing a hierarchical VLM-RL loco-manipulation pipeline for the Unitree G1
-        humanoid in NVIDIA Isaac Lab.
+        I work on reinforcement learning fine tuning of vision language action policies, and on hierarchical
+        control for humanoid robots. Most of it runs on a single consumer GPU, which is a constraint I treat as
+        part of the problem rather than an excuse: if a method only works on a cluster, very few people can check
+        it. Platforms are the Unitree G1 and a UR5e arm, in NVIDIA Isaac Lab and LeRobot.
       </p>
       <div class="contact-links">
         <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a>
-        <a href="https://github.com/mturan33" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mturan33" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/mehmetturanyardimci/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=t-aymboAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://arxiv.org/abs/2606.11891" target="_blank" rel="noopener">arXiv</a>
       </div>
       <a href="CV_English.pdf" class="cv-btn" download>Download CV</a>
+      <span class="cv-note">Europass format, last updated July 2026</span>
     </div>
 
     <div class="latest-paper">
       <span class="latest-paper-badge">Latest Paper</span>
       <h2>Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</h2>
       <div class="authors">Mehmet Turan Yardımcı</div>
-      <div class="venue">ICRA 2026 &middot; Workshop on Reinforcement Learning in the Era of Imitation Learning (RL4IL) &middot; Vienna, Austria</div>
+      <div class="venue">ICRA 2026 &middot; Workshop on Reinforcement Learning in the Era of Imitation Learning (RL4IL) &middot; Poster, Vienna, June 2026</div>
+      <p class="abstract">
+        The paper isolates one design choice in multi objective reinforcement learning: whether a humanoid policy
+        should share a single critic across locomotion and manipulation, or use separate critics with disjoint
+        reward signals. Three policies on a 23 degree of freedom Unitree G1 in Isaac Lab, same observations, same
+        curriculum, same hardware, with only the critic architecture varied. A secondary result is that once the
+        architecture is fixed, adding anti gaming reward machinery buys nothing further.
+      </p>
       <div class="latest-paper-links">
-        <a href="critic-architecture-matters/">🌐 Project Page</a>
-        <a href="https://openreview.net/pdf?id=QTQk2HlCbs" target="_blank">📄 Read PDF</a>
-        <a href="https://openreview.net/forum?id=QTQk2HlCbs" target="_blank">🔗 OpenReview</a>
+        <a href="critic-architecture-matters/">Project page</a>
+        <a href="https://arxiv.org/abs/2606.11891" target="_blank" rel="noopener">arXiv</a>
+        <a href="https://openreview.net/forum?id=QTQk2HlCbs" target="_blank" rel="noopener">OpenReview</a>
+        <a href="https://github.com/mturan33/isaac-g1-ulc" target="_blank" rel="noopener">Code</a>
+      </div>
+    </div>
+
+    <div class="featured">
+      <h2>smolvla_flow_rl</h2>
+      <p class="feat-subtitle">
+        Online reinforcement learning fine tuning of a flow matching vision language action policy, on a single
+        12GB consumer GPU. Open source, Apache 2.0.
+      </p>
+
+      <img src="https://raw.githubusercontent.com/mturan33/smolvla_flow_rl/main/assets/demo.gif"
+           alt="Two robot simulator episodes playing side by side, each a manipulation task from the LIBERO Long suite."
+           loading="lazy" style="width:100%; border-radius:var(--radius);">
+      <figcaption>
+        Two LIBERO Long episodes from my own runs, side by side. It is footage, not a measurement: two episodes,
+        chosen, with no repetition and no statistics behind either panel.
+      </figcaption>
+
+      <div class="disclaimer">
+        No results are reported in that repository, and none are reported here. Everything published so far
+        describes the machinery, what it trains, what it weighs and how long it takes. Measurements will be
+        released with the accompanying paper.
+      </div>
+
+      <div class="feat-desc">
+        A flow matching policy produces an action chunk by integrating a learned velocity field from noise.
+        Integrating it deterministically gives no action likelihood, so a policy gradient has nothing to act on.
+        The repository takes the standard route around that, following the approach of pi_RL: one step of the
+        integration is treated as stochastic, so the sampled chunk has a tractable log probability. The pretrained
+        action head is left bit identical and driven through a callback. What is built around that is the part
+        that makes such a run trustworthy rather than merely runnable:
+        <ul>
+          <li><strong>Stochastic sampler</strong> for flow matching policies, leaving the pretrained action head untouched.</li>
+          <li><strong>Policy gradient update</strong> that grades the action the environment actually executed, over the executed part of the chunk only.</li>
+          <li><strong>Critic head</strong> with adaptive target rescaling, kept outside the action head.</li>
+          <li><strong>Parameter manifest and learning rate proof</strong> printed before the first update, so what is training and at what rate is a logged fact rather than an assumption.</li>
+          <li><strong>Process isolated simulator harness</strong> with a sparse terminal reward and no shaping.</li>
+          <li><strong>Deterministic evaluation</strong> with a completeness gate that refuses to produce a number from an unfinished evaluation.</li>
+          <li><strong>Verification protocol</strong> whose mechanical subset runs from a single gate entry point.</li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">SmolVLA</span>
+        <span class="tag">LeRobot</span>
+        <span class="tag">Flow matching</span>
+        <span class="tag">PPO</span>
+        <span class="tag">LIBERO</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">RLinf</span>
+        <span class="tag">12GB VRAM</span>
+      </div>
+
+      <div class="feat-links">
+        <a href="https://mturan33.github.io/smolvla_flow_rl/" target="_blank" rel="noopener">Project page &rarr;</a>
+        <a href="https://github.com/mturan33/smolvla_flow_rl" target="_blank" rel="noopener">GitHub repository &rarr;</a>
       </div>
     </div>
 
@@ -465,20 +656,21 @@
       <h2>Research Interests</h2>
       <div class="interests-grid">
         <div class="interest-item">
-          <strong>Robot Learning</strong>
-          Reinforcement learning for locomotion and whole-body manipulation
+          <strong>RL fine tuning of VLA policies</strong>
+          Turning a pretrained vision language action policy into one that improves from its own experience,
+          without discarding what imitation gave it
         </div>
         <div class="interest-item">
-          <strong>Vision-Language Models</strong>
-          VLM-guided task planning for robotic manipulation
+          <strong>Flow matching and diffusion policies</strong>
+          Sampling, likelihoods and policy gradients for generative action models
         </div>
         <div class="interest-item">
-          <strong>Sim-to-Real Transfer</strong>
-          Domain randomization and curriculum learning for real-world deployment
+          <strong>Humanoid loco manipulation</strong>
+          Whole body control where locomotion and manipulation share one body and compete for it
         </div>
         <div class="interest-item">
-          <strong>Autonomous Systems</strong>
-          UAV navigation, path planning, and multi-agent coordination
+          <strong>Verification and reproducibility</strong>
+          Making a training run report enough about itself that a silent failure cannot pass for a result
         </div>
       </div>
     </section>
@@ -486,11 +678,11 @@
     <div class="featured">
       <h2>Isaac G1 Humanoid VLM-RL Loco-Manipulation</h2>
       <p class="feat-subtitle">
-        Hierarchical reinforcement learning system for Unitree G1 humanoid robot &mdash;
-        whole-body control with 43 degrees of freedom and Vision-Language Model integration.
+        Hierarchical reinforcement learning for the Unitree G1 humanoid: whole body control with vision language
+        model task planning on top.
       </p>
 
-      <img src="g1_stage7_reaching_showcase.gif" alt="G1 Humanoid Arm Reaching Demo" style="width:100%; border-radius:var(--radius);">
+      <img src="g1_stage7_reaching_showcase.gif" alt="G1 humanoid arm reaching demonstration" loading="lazy" style="width:100%; border-radius:var(--radius);">
 
       <div class="feat-metrics">
         <div class="metric">
@@ -508,7 +700,7 @@
       </div>
 
       <div class="feat-desc">
-        <strong>Multi-Stage Curriculum Training Pipeline:</strong>
+        <strong>Multi stage curriculum training pipeline:</strong>
       </div>
 
       <div class="pipeline">
@@ -522,11 +714,12 @@
 
       <div class="feat-desc">
         <ul>
-          <li><strong>Triple Actor-Critic architecture:</strong> Separate policies for locomotion (legs + waist), arm reaching (shoulders + elbows + wrists), and hand control (DEX3 3-finger dexterous hands)</li>
-          <li><strong>Dual Actor-Critic loco-manipulation:</strong> Decoupled locomotion and arm policies trained sequentially with curriculum learning, achieving coordinated walking and reaching</li>
-          <li><strong>Anti-gaming mechanisms:</strong> Absolute target sampling, 3-condition reach validation, movement-centric rewards to prevent curriculum exploitation</li>
-          <li><strong>29-DoF whole-body model:</strong> 12 leg + 3 waist + 8 arm + 6 wrist joints, with 14 DEX3 finger joints for grasping</li>
-          <li><strong>Goal task:</strong> Squat, pick object from ground, stand up, walk to table, place object in box</li>
+          <li><strong>Triple actor critic architecture:</strong> separate policies for locomotion (legs and waist), arm reaching (shoulders, elbows, wrists), and hand control (DEX3 three finger hands)</li>
+          <li><strong>Dual actor critic loco manipulation:</strong> decoupled locomotion and arm policies trained sequentially with curriculum learning, for coordinated walking and reaching</li>
+          <li><strong>Anti gaming mechanisms:</strong> absolute target sampling, three condition reach validation, movement centric rewards, so the curriculum cannot be exploited by a policy that stands still</li>
+          <li><strong>29 DoF whole body model:</strong> 12 leg, 3 waist, 8 arm and 6 wrist joints, with 14 DEX3 finger joints for grasping</li>
+          <li><strong>VLM planning layer:</strong> Qwen3-VL running locally through Ollama turns a natural language instruction into a skill sequence, with replanning from updated world state</li>
+          <li><strong>Goal task:</strong> squat, pick an object off the ground, stand, walk to a table, place it in a box</li>
         </ul>
       </div>
 
@@ -535,14 +728,15 @@
         <span class="tag">RSL-RL</span>
         <span class="tag">PyTorch</span>
         <span class="tag">PPO</span>
-        <span class="tag">Florence-2</span>
+        <span class="tag">Qwen3-VL</span>
         <span class="tag">CUDA</span>
         <span class="tag">Curriculum RL</span>
         <span class="tag">Domain Randomization</span>
       </div>
 
       <div class="feat-links">
-        <a href="https://github.com/mturan33/isaac-g1-ulc-vlm" target="_blank">GitHub Repository &rarr;</a>
+        <a href="https://github.com/mturan33/isaac-g1-ulc-vlm" target="_blank" rel="noopener">GitHub repository &rarr;</a>
+        <a href="https://github.com/mturan33/isaac-g1-hierarchical" target="_blank" rel="noopener">Hierarchical control &rarr;</a>
       </div>
     </div>
 
@@ -551,9 +745,45 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <img src="spot-rl-video-step-0.gif" alt="Anymal-C Quadruped" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>G1 Unitree Locomotion Control (ULC)</h3>
+          <p>Multi stage PPO pipeline for Unitree G1 whole body locomotion: flat walking, velocity tracking, terrain adaptation, torso stabilization and arm coordination, across a five stage curriculum. This is the codebase behind the ICRA workshop paper above.</p>
+          <div class="tags">
+            <span class="tag">Isaac Lab</span>
+            <span class="tag">RSL-RL</span>
+            <span class="tag">PPO</span>
+            <span class="tag">CUDA</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/isaac-g1-ulc" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <h3>G1 Vision Language Action pipeline</h3>
+          <p>An RL to IL to VLA pipeline for the G1: expert demonstrations collected from trained RL policies, converted to a LeRobot dataset, then distilled into end to end visuomotor policies with ACT, Diffusion Policy and GR00T N1.6. In progress, repository not public yet.</p>
+          <div class="tags">
+            <span class="tag">LeRobot</span>
+            <span class="tag">ACT</span>
+            <span class="tag">Diffusion Policy</span>
+            <span class="tag">GR00T</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Go2 VLM-RL Navigation</h3>
+          <p>Language conditioned quadruped navigation on the Unitree Go2, combining a vision language model with reinforcement learning for instruction following and problem solving in Isaac Lab.</p>
+          <div class="tags">
+            <span class="tag">Isaac Lab</span>
+            <span class="tag">VLM</span>
+            <span class="tag">Navigation</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/isaac-go2-vlm-rl" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <img src="spot-rl-video-step-0.gif" alt="Anymal-C quadruped locomotion" class="card-thumb" loading="lazy" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
           <h3>Isaac Lab Anymal-C Quadruped Locomotion</h3>
-          <p>PPO algorithm implemented from scratch for ANYmal-C quadruped robot. Achieved 17,000+ steps/sec training with domain randomization and reward shaping on RTX 5070 Ti.</p>
+          <p>PPO implemented from scratch for the ANYmal-C quadruped, reaching 17,000 or more steps per second on an RTX 5070 Ti with domain randomization and reward shaping across 4,096 parallel environments.</p>
           <div class="tags">
             <span class="tag">Isaac Lab</span>
             <span class="tag">PPO</span>
@@ -561,13 +791,13 @@
             <span class="tag">CUDA</span>
           </div>
           <br>
-          <a href="https://github.com/mturan33/isaaclab-anymal-locomotion" target="_blank">View on GitHub &rarr;</a>
+          <a href="https://github.com/mturan33/isaaclab-anymal-locomotion" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         </div>
 
         <div class="project-card">
-          <img src="ant_demo_2x2.gif" alt="MuJoCo Ant-v5" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <img src="ant_demo_2x2.gif" alt="MuJoCo Ant-v5 policy" class="card-thumb" loading="lazy" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
           <h3>MuJoCo Ant-v5 PPO from Scratch</h3>
-          <p>PPO and SAC implemented with pure NumPy and PyTorch for MuJoCo Ant-v5. Achieved 2700+ reward by eliminating hopping through custom reward shaping. 16 parallel environments with GAE.</p>
+          <p>PPO and SAC written with NumPy and PyTorch alone for MuJoCo Ant-v5, past 2,700 reward by shaping away the hopping gait the default reward rewards. Sixteen parallel environments, GAE, observation normalization and learning rate annealing.</p>
           <div class="tags">
             <span class="tag">MuJoCo</span>
             <span class="tag">PPO</span>
@@ -575,63 +805,97 @@
             <span class="tag">NumPy</span>
           </div>
           <br>
-          <a href="https://github.com/mturan33/mujoco-ant-ppo" target="_blank">View on GitHub &rarr;</a>
+          <a href="https://github.com/mturan33/mujoco-ant-ppo" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         </div>
 
         <div class="project-card">
-          <img src="actor-critic-cartpole.jpg" alt="Actor-Critic CartPole" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <img src="BARN-Figure1.GlobalvsLocal.png" alt="BARN benchmark figure" class="card-thumb" loading="lazy" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>BARN Benchmark: Local Path Planners</h3>
+          <p>A comparative benchmark of TEB, DWA, MPC and Lattice local planners on the BARN navigation dataset in ROS and Gazebo, and the subject of my undergraduate thesis. The paper is under review.</p>
+          <div class="tags">
+            <span class="tag">ROS</span>
+            <span class="tag">Gazebo</span>
+            <span class="tag">Navigation</span>
+            <span class="tag">Python</span>
+          </div>
+          <br>
+          <a href="https://github.com/mturan33/benchmark-local-path-planners-barn-challenge" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <img src="actor-critic-cartpole.jpg" alt="Actor critic CartPole application" class="card-thumb" loading="lazy" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
           <h3>Live Actor-Critic Training (CartPole)</h3>
-          <p>Interactive Streamlit web app demonstrating real-time RL training. Actor-Critic algorithm with adjustable hyperparameters for educational visualization.</p>
+          <p>An interactive Streamlit application that trains an actor critic agent in the browser while you change its hyperparameters, built to make the learning dynamics visible rather than described.</p>
           <div class="tags">
             <span class="tag">Streamlit</span>
             <span class="tag">Actor-Critic</span>
             <span class="tag">Gymnasium</span>
           </div>
           <br>
-          <a href="https://github.com/mturan33/my-actor-critic" target="_blank">View on GitHub &rarr;</a>
+          <a href="https://github.com/mturan33/my-actor-critic" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         </div>
 
         <div class="project-card">
-          <img src="BARN-Figure1.GlobalvsLocal.png" alt="BARN Benchmark" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
-          <h3>BARN Benchmark: Local Path Planners</h3>
-          <p>Benchmarking framework using ROS and the BARN dataset to evaluate local path planners (DWA, TEB) in cluttered environments. Academic paper pending publication.</p>
-          <div class="tags">
-            <span class="tag">ROS</span>
-            <span class="tag">Gazebo</span>
-            <span class="tag">Python</span>
-            <span class="tag">Navigation</span>
-          </div>
-          <br>
-          <a href="https://github.com/mturan33/benchmark-local-path-planners-barn-challenge" target="_blank">View on GitHub &rarr;</a>
-        </div>
-
-        <div class="project-card">
-          <img src="yolo.png" alt="YOLOv7 UAV Detection" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
-          <h3>YOLOv7 Fixed-Wing UAV Detection</h3>
-          <p>Real-time object detection system for autonomous UAV operations using YOLOv7, integrated with Jetson Nano and Pixhawk flight controllers for TEKNOFEST competitions.</p>
+          <img src="yolo.png" alt="YOLO based UAV detection" class="card-thumb" loading="lazy" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <h3>YOLO Fixed Wing UAV Detection</h3>
+          <p>Real time detection for autonomous fixed wing UAV operations, running on a Jetson Nano alongside a Pixhawk flight controller, built and flown for TEKNOFEST competitions.</p>
           <div class="tags">
             <span class="tag">YOLO</span>
             <span class="tag">OpenCV</span>
             <span class="tag">Jetson Nano</span>
-            <span class="tag">ROS</span>
+            <span class="tag">Pixhawk</span>
           </div>
           <br>
-          <a href="https://github.com/mturan33" target="_blank">View on GitHub &rarr;</a>
+          <a href="https://github.com/mturan33" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         </div>
 
         <div class="project-card">
-          <img src="nxt-g-mindstorms-programing.jpg" alt="NXT Robot PID Control" class="card-thumb" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
+          <img src="nxt-g-mindstorms-programing.jpg" alt="LEGO NXT robot" class="card-thumb" loading="lazy" style="width:100%; border-radius:6px; aspect-ratio:4/3; object-fit:cover; border:none; background:none;">
           <h3>PID Control with NXT Robot</h3>
-          <p>PID controller implemented on LEGO Mindstorms NXT robots for precise motor control with real-time sensor feedback, using NXC language.</p>
+          <p>A PID controller on LEGO Mindstorms NXT hardware in NXC, with real time sensor feedback closing the loop on motor control. The first control system I tuned by hand rather than by reading about it.</p>
           <div class="tags">
             <span class="tag">PID</span>
             <span class="tag">NXC</span>
             <span class="tag">Control Systems</span>
           </div>
           <br>
-          <a href="https://github.com/mturan33/PID_Implementation_With_NXT_Robot" target="_blank">View on GitHub &rarr;</a>
+          <a href="https://github.com/mturan33/PID_Implementation_With_NXT_Robot" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         </div>
 
+      </div>
+    </section>
+
+    <section>
+      <h2>Publications</h2>
+
+      <div class="pub-item">
+        <div class="title">Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</div>
+        <div class="authors">Yardımcı, M.T.</div>
+        <div class="venue">ICRA 2026 Workshop on Reinforcement Learning in the Era of Imitation Learning (RL4IL), poster, Vienna, June 2026</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2606.11891" target="_blank" rel="noopener">arXiv:2606.11891</a>
+          <a href="https://openreview.net/forum?id=QTQk2HlCbs" target="_blank" rel="noopener">OpenReview</a>
+          <a href="critic-architecture-matters/">Project page</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="title">Benchmarking Local Path Planners in ROS using the BARN Dataset</div>
+        <div class="authors">Yardımcı, M.T., Çoğurcu, Y.E.</div>
+        <div class="venue">Cukurova University Journal of the Faculty of Engineering, under review, 2026</div>
+        <div class="pub-links">
+          <a href="https://github.com/mturan33/benchmark-local-path-planners-barn-challenge" target="_blank" rel="noopener">Code and data</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="title">smolvla_flow_rl: a training substrate for online RL fine tuning of flow matching VLA policies</div>
+        <div class="authors">Yardımcı, M.T.</div>
+        <div class="venue">Software, Apache 2.0, 2026. The accompanying paper is in preparation and is where measurements will appear.</div>
+        <div class="pub-links">
+          <a href="https://mturan33.github.io/smolvla_flow_rl/" target="_blank" rel="noopener">Project page</a>
+          <a href="https://github.com/mturan33/smolvla_flow_rl" target="_blank" rel="noopener">Repository</a>
+        </div>
       </div>
     </section>
 
@@ -639,23 +903,32 @@
       <h2>Education</h2>
 
       <div class="timeline-item">
+        <div class="date">Jul 2026 &mdash; Sep 2028 (expected)</div>
+        <h3>M.Sc. in Computer Science</h3>
+        <div class="org">Karlsruhe Institute of Technology (KIT), Germany</div>
+        <ul>
+          <li>Incoming student. Intended focus: robot learning, reinforcement learning and vision language action models</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
         <div class="date">Oct 2021 &mdash; Oct 2025</div>
-        <h3>Bachelor's Degree in Computer Engineering (English)</h3>
+        <h3>B.Sc. in Computer Engineering (English)</h3>
         <div class="org">Cukurova University, Adana, Turkey</div>
         <ul>
-          <li>GPA: 2.85 / 4.00</li>
+          <li>Honor student, Fall 2023 to 2024. High honor student, Fall 2024 to 2025</li>
           <li>Thesis: Benchmarking Local Path Planners in ROS using the BARN Dataset</li>
-          <li>Focus: AI, robotics, pattern recognition, optimal control</li>
+          <li>Coursework in artificial intelligence, pattern recognition, optimal control, reinforcement learning, robotics and human computer interaction</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <div class="date">Sep 2024 &mdash; Feb 2025</div>
-        <h3>Erasmus+ Exchange &mdash; Computer Science (English)</h3>
+        <h3>Erasmus+ Exchange, Computer Science (English)</h3>
         <div class="org">Bialystok University of Technology, Poland</div>
         <ul>
-          <li>GPA: 4.9 / 5.0</li>
-          <li>Focus: Robotics, PID control, HCI, computer graphics</li>
+          <li>GPA 4.9 out of 5.0</li>
+          <li>Robotics and automation, PID control, sensor integration, robot programming, computer graphics</li>
         </ul>
       </div>
     </section>
@@ -664,49 +937,33 @@
       <h2>Experience</h2>
 
       <div class="timeline-item">
-        <div class="date">Aug &mdash; Sep 2025</div>
+        <div class="date">Aug 2025 &mdash; Sep 2025</div>
         <h3>Computer Engineering Intern</h3>
         <div class="org">Kivanc Tekstil, Adana</div>
         <ul>
-          <li>In-house software development with .NET and C#</li>
+          <li>In house software development with .NET and C#</li>
         </ul>
       </div>
 
       <div class="timeline-item">
-        <div class="date">Jul &mdash; Aug 2025</div>
+        <div class="date">Jul 2025 &mdash; Aug 2025</div>
         <h3>Computer Engineering Intern</h3>
-        <div class="org">Medcem, Adana</div>
+        <div class="org">Medcem Cement Group, Silifke</div>
         <ul>
-          <li>Algorithmic solutions for cement production automation</li>
-          <li>Software architecture, debugging, and UI design with .NET</li>
+          <li>Algorithmic solutions for production side software, with .NET and C#</li>
+          <li>Software architecture, debugging and interface design</li>
         </ul>
       </div>
 
       <div class="timeline-item">
-        <div class="date">Feb 2022 &mdash; Oct 2024</div>
-        <h3>Team Leader</h3>
+        <div class="date">May 2023 &mdash; Jul 2025</div>
+        <h3>Team Leader, then Software Manager</h3>
         <div class="org">1.5 Adana AGM Alkar UAV Team</div>
         <ul>
-          <li>Led 10+ members designing autonomous UAV systems</li>
-          <li>TUBITAK and TEKNOFEST competition projects</li>
-          <li>AI-based image processing for autonomous navigation (YOLOv5, Jetson Nano, Pixhawk)</li>
+          <li>Led a team of more than ten people building autonomous fixed wing UAV systems</li>
+          <li>TUBITAK and TEKNOFEST competition projects across three years</li>
+          <li>Vision based autonomy on embedded hardware: YOLO detection on a Jetson Nano, Pixhawk flight control, PID tuning</li>
         </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Publications</h2>
-      
-      <div class="pub-item">
-        <div class="title">Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</div>
-        <div class="authors">Yardimci, M.T.</div>
-        <div class="venue">ICRA Workshop on Reinforcement Learning in the Era of Imitation Learning (2026)</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="title">Benchmarking Local Path Planners in ROS using the BARN Dataset</div>
-        <div class="authors">Yardimci, M.T., Cogurcu, Y.E.</div>
-        <div class="venue">Cukurova University Journal of the Faculty of Engineering (Pending Publication, 2026)</div>
       </div>
     </section>
 
@@ -714,15 +971,31 @@
       <h2>Skills</h2>
 
       <div class="skills-group">
-        <div class="label">Robot Learning</div>
+        <div class="label">Robot learning</div>
         <div class="tags">
           <span class="tag">PPO</span>
+          <span class="tag">SAC</span>
           <span class="tag">Actor-Critic</span>
           <span class="tag">GAE</span>
-          <span class="tag">SAC</span>
-          <span class="tag">Reward Shaping</span>
-          <span class="tag">Domain Randomization</span>
-          <span class="tag">Curriculum Learning</span>
+          <span class="tag">Reward shaping</span>
+          <span class="tag">Curriculum learning</span>
+          <span class="tag">Domain randomization</span>
+          <span class="tag">Imitation learning</span>
+          <span class="tag">Flow matching policies</span>
+          <span class="tag">Diffusion policy</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="label">Vision language action</div>
+        <div class="tags">
+          <span class="tag">SmolVLA</span>
+          <span class="tag">LeRobot</span>
+          <span class="tag">ACT</span>
+          <span class="tag">GR00T N1.6</span>
+          <span class="tag">LIBERO</span>
+          <span class="tag">Qwen3-VL</span>
+          <span class="tag">Florence-2</span>
         </div>
       </div>
 
@@ -730,60 +1003,62 @@
         <div class="label">Simulation</div>
         <div class="tags">
           <span class="tag">NVIDIA Isaac Lab</span>
+          <span class="tag">Isaac Sim</span>
           <span class="tag">MuJoCo</span>
           <span class="tag">Gazebo</span>
           <span class="tag">RViz</span>
+          <span class="tag">ROS / ROS2</span>
         </div>
       </div>
 
       <div class="skills-group">
-        <div class="label">AI / ML</div>
+        <div class="label">Engineering</div>
         <div class="tags">
           <span class="tag">PyTorch</span>
+          <span class="tag">CUDA</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Weights &amp; Biases</span>
           <span class="tag">TensorBoard</span>
-          <span class="tag">YOLO</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">CNNs</span>
-          <span class="tag">Florence-2</span>
-        </div>
-      </div>
-
-      <div class="skills-group">
-        <div class="label">Programming</div>
-        <div class="tags">
+          <span class="tag">Linux and WSL2</span>
+          <span class="tag">Git</span>
           <span class="tag">Python</span>
           <span class="tag">C / C++</span>
-          <span class="tag">CUDA</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Git</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">ROS / ROS2</span>
         </div>
       </div>
 
       <div class="skills-group">
         <div class="label">Hardware</div>
         <div class="tags">
+          <span class="tag">Unitree G1</span>
+          <span class="tag">Unitree Go2</span>
+          <span class="tag">UR5e</span>
+          <span class="tag">RealSense D435i</span>
           <span class="tag">NVIDIA Jetson</span>
           <span class="tag">Pixhawk</span>
           <span class="tag">RTX 5070 Ti</span>
-          <span class="tag">Unitree G1</span>
         </div>
       </div>
+    </section>
 
-      <div class="skills-group">
-        <div class="label">Certifications</div>
-        <div class="tags">
-          <span class="tag">Supervised ML: Regression & Classification (Coursera)</span>
-        </div>
+    <section>
+      <h2>Languages, Tests and Certificates</h2>
+      <div class="facts">
+        <div><strong>Turkish</strong> native</div>
+        <div><strong>English</strong> professional working proficiency</div>
+        <div><strong>TOEFL iBT</strong> 110 out of 120, March 2026</div>
+        <div><strong>YDS</strong> 86.25, November 2025</div>
+        <div><strong>Duolingo English Test</strong> 130, January 2026</div>
+        <div><strong>Coursera</strong> Supervised Machine Learning: Regression and Classification, DeepLearning.AI and Stanford University</div>
       </div>
     </section>
 
     <footer>
       <p>
         <a href="mailto:mehmetturanyardimci@hotmail.com">mehmetturanyardimci@hotmail.com</a> &middot;
-        <a href="https://github.com/mturan33" target="_blank">GitHub</a> &middot;
-        <a href="https://linkedin.com/in/mehmet-turan-yard%C4%B1mc%C4%B1-02bb01223" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mturan33" target="_blank" rel="noopener">GitHub</a> &middot;
+        <a href="https://www.linkedin.com/in/mehmetturanyardimci/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+        <a href="https://scholar.google.com/citations?user=t-aymboAAAAJ" target="_blank" rel="noopener">Google Scholar</a> &middot;
+        <a href="https://arxiv.org/abs/2606.11891" target="_blank" rel="noopener">arXiv</a>
       </p>
     </footer>
 
