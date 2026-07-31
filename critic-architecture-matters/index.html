@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Critic Architecture Matters: Dual vs. Unified Critics for Humanoid Loco-Manipulation</title>
-  <meta name="description" content="ICRA 2026 RL4IL workshop paper. A controlled comparison of dual and unified critic architectures for whole-body loco-manipulation on the Unitree G1 in NVIDIA Isaac Lab.">
+  <meta name="description" content="ICRA 2026 RL4IL workshop paper. Dual vs. unified critics for whole-body loco-manipulation on the Unitree G1 in NVIDIA Isaac Lab: a measured efficiency gap between two trained policies, with an explicit account of the confounds that keep it from being an isolated causal effect.">
   <style>
     :root {
       --bg: #ffffff;
@@ -263,23 +263,23 @@
       <p>Multi-objective reinforcement learning for humanoid robots must coordinate locomotion and
       manipulation within a single policy. A natural design choice is whether to use a single
       (unified) critic that estimates the combined value of all objectives, or separate (dual)
-      critics with disjoint reward signals. We present a controlled comparison on the Unitree G1
-      humanoid (23 active DoF) in NVIDIA Isaac Lab, training loco-manipulation policies through a
-      sequential curriculum spanning 13 levels from stationary reaching to walking with
-      variable-orientation targets. In standardized evaluation, dual-critic policies reach targets
-      3.5&times; faster (6.5 vs. 22.6 simulation steps), achieve 2&times; higher throughput
-      (14.3 vs. 7.0 validated reaches per 1,000 steps), and attain higher validated reach rates
-      (65.2% vs. 53.8%) compared to the unified-critic policy. Notably, additional anti-gaming
-      reward mechanisms provide no further improvement beyond the architectural change alone
-      (60.9% vs. 65.2%). These results have direct implications for the emerging paradigm of RL
-      fine-tuning of imitation-learned policies: when refining a pre-trained manipulation policy
-      with RL, a unified critic risks suppressing the learned behavior through competing
-      locomotion gradients. These findings demonstrate that critic architecture is a
-      primary&mdash;and often overlooked&mdash;design choice in multi-objective humanoid RL, with
-      greater impact than reward engineering on reaching efficiency.</p>
-      <p class="note">The 13-level curriculum described above is the one the dual-critic run
-      followed. The unified-critic run used a different, 40-level curriculum &mdash; see
-      <a href="#caveats">Experimental caveats</a> below.</p>
+      critics with disjoint reward signals. We compare the two on the Unitree G1 humanoid (23
+      active DoF, of which 17 are policy-controlled) in NVIDIA Isaac Lab, training
+      loco-manipulation policies through sequential curricula that progress from stationary
+      reaching to walking with variable-orientation targets. Under a matched compute budget, the
+      dual-critic run reaches targets <strong>3.5&times; faster</strong> (6.5 vs. 22.6 simulation
+      steps), achieves <strong>2&times; higher throughput</strong> (14.3 vs. 7.0 validated reaches
+      per 1,000 steps), and attains a higher validated reach rate (65.2% vs. 53.8%) than the
+      unified-critic run in a standardized evaluation. Adding five anti-gaming reward mechanisms
+      on top of the dual critic yields no further improvement (60.9% vs. 65.2%). We report this as
+      an efficiency gap between two trained policies rather than an isolated effect of the critic:
+      the two runs also differ in curriculum schedule, arm action dimensionality and one locomotion
+      reward weight, and each is a single seed. The results are nonetheless suggestive for the
+      emerging paradigm of RL fine-tuning of imitation-learned policies, where a unified critic may
+      suppress pre-trained arm behavior through competing locomotion gradients. We argue that
+      critic architecture deserves explicit treatment as a design variable in multi-objective
+      humanoid RL, and specify the single-variable ablation required to establish its causal
+      contribution.</p>
     </div>
   </section>
 
