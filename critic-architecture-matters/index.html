@@ -330,29 +330,41 @@
 
       <ul>
         <li><strong>The two runs did not train on the same curriculum.</strong> The unified-critic
-        run used a 40-level ladder (reaching &rarr; orientation &rarr; gripper &rarr;
-        height/payload); the dual-critic run used a 13-level one (standing &rarr; walking &rarr;
-        fixed orientation &rarr; arbitrary orientation out to an 80&deg; cone). These are
-        different schedules, not long and short versions of one. When its checkpoint was saved the
-        unified policy was at level 10 of 40 &mdash; <em>standing still</em>, 0.05&nbsp;m
-        tolerance, fixed palm-down orientation &mdash; while the dual policy had completed 12 of
-        12: <em>walking at up to 0.6&nbsp;m/s</em> with an arbitrary commanded palm direction at
+        run used a 40-level ladder (reaching &rarr; orientation and gripper together &rarr;
+        commanded torso height &rarr; payload); the dual-critic run used a 13-level one (standing
+        &rarr; walking &rarr; fixed orientation &rarr; arbitrary orientation out to an 80&deg;
+        cone). These are different schedules, not long and short versions of one. When its
+        checkpoint was saved the unified policy was at level 10 of 40 &mdash; <em>standing
+        still</em>, 0.05&nbsp;m tolerance, fixed palm-down orientation at 0.8&nbsp;rad slack,
+        with gripper control active &mdash; while the dual policy had completed 12 of 13:
+        <em>walking at up to 0.6&nbsp;m/s</em> with an arbitrary commanded palm direction at
         0.04&nbsp;m tolerance.</li>
 
-        <li><strong>Different locomotion reward.</strong> One of the fourteen locomotion weights
-        differs: forward velocity tracking, 3.0 in the unified script against 5.0 in the dual one.
-        This was active for the entire length of both runs.</li>
+        <li><strong>Different reward tables.</strong> The two scripts do not share a reward table.
+        Forward velocity tracking is weighted 2.5 in the unified script against 5.0 in the dual
+        one, and the term lists differ: the dual configuration adds leg posture, standing still
+        and foot stability, the unified one gripper, height tracking and payload terms. Active for
+        the entire length of both runs.</li>
 
-        <li><strong>Different arm action dimensionality.</strong> The unified policy's arm actor
-        emits 12 values (5 arm + 7 finger) against the dual policy's 5. The seven finger outputs
-        were sampled and entered the policy update, but never reached the robot &mdash; finger
-        control activates at curriculum level 20 and the run ended at 10 &mdash; and they are
-        discarded at evaluation. The confound is in exploration and policy entropy rather than in
-        the task performed.</li>
+        <li><strong>Different update rule.</strong> The difference is not only the critic. The
+        unified script normalizes one summed advantage and applies a single likelihood ratio to
+        both actors; the dual script forms a separate advantage per reward stream and updates each
+        actor with its own ratio, clipping and optimizer. Critic architecture and credit
+        assignment move together here, so the measured gap cannot separate them.</li>
 
-        <li><strong>Single seed.</strong> The training scripts set no random seed at all, so each
-        arm is one run with no variance estimate. The evaluation harness does seed itself, so the
-        two policies are compared on matched target sequences.</li>
+        <li><strong>Different arm action dimensionality, and a train/eval mismatch.</strong> The
+        unified policy's arm actor emits 12 values (5 arm + 7 finger) against the dual policy's 5.
+        Finger control activates at curriculum level 10, so those seven outputs drove the robot's
+        fingers for 18,838 of the 20,000 training iterations. They are discarded at evaluation,
+        where the benchmark pins the fingers open for every policy, so the unified policy is
+        measured in a configuration it did not train in. The confound is in the task performed as
+        well as in exploration and policy entropy.</li>
+
+        <li><strong>Single seed.</strong> Neither training run set a random seed, so each arm is
+        one run with no variance estimate. The evaluation harness does seed itself, so the two
+        policies are compared on matched target sequences &mdash; but with the dual run's
+        locomotion branch loaded for all three policies, including the unified one, whose own
+        locomotion weights differ from it.</li>
 
         <li><strong>Parallel environments.</strong> 2048 for the dual-critic run and 4096 for the
         anti-gaming run, both recorded. The unified run's launch flags were never saved; 2048 is
