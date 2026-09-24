@@ -261,25 +261,24 @@
     <h2>Abstract</h2>
     <div class="abstract">
       <p>Multi-objective reinforcement learning for humanoid robots must coordinate locomotion and
-      manipulation within a single policy. A natural design choice is whether to use a single
-      (unified) critic that estimates the combined value of all objectives, or separate (dual)
-      critics with disjoint reward signals. We compare the two on the Unitree G1 humanoid (23
-      active DoF, of which 17 are policy-controlled) in NVIDIA Isaac Lab, training
-      loco-manipulation policies through sequential curricula that progress from stationary
-      reaching to walking with variable-orientation targets. Under a matched compute budget, the
-      dual-critic run reaches targets <strong>3.5&times; faster</strong> (6.5 vs. 22.6 simulation
-      steps), achieves <strong>2&times; higher throughput</strong> (14.3 vs. 7.0 validated reaches
-      per 1,000 steps), and attains a higher validated reach rate (65.2% vs. 53.8%) than the
-      unified-critic run in a standardized evaluation. Adding five anti-gaming reward mechanisms
-      on top of the dual critic yields no further improvement (60.9% vs. 65.2%). We report this as
-      an efficiency gap between two trained policies rather than an isolated effect of the critic:
-      the two runs also differ in curriculum schedule, arm action dimensionality and one locomotion
-      reward weight, and each is a single seed. The results are nonetheless suggestive for the
-      emerging paradigm of RL fine-tuning of imitation-learned policies, where a unified critic may
-      suppress pre-trained arm behavior through competing locomotion gradients. We argue that
-      critic architecture deserves explicit treatment as a design variable in multi-objective
-      humanoid RL, and specify the single-variable ablation required to establish its causal
-      contribution.</p>
+      manipulation within one policy. A natural design choice is between a single (unified) critic
+      that estimates the combined value of all objectives and separate (dual) critics with disjoint
+      reward signals. We compare the two on the Unitree G1 humanoid in NVIDIA Isaac Lab. In the
+      standing mode of a standardized evaluation, the dual-critic run reaches targets 3.5&times;
+      faster (6.5 vs. 22.6 simulation steps), achieves 2&times; the throughput (14.3 vs. 7.0
+      validated reaches per 1,000 steps) and a higher validated reach rate (65.2% vs. 53.8%) than
+      the unified-critic run. That evaluation pins the fingers open for every policy, whereas the
+      unified run had trained driving its own. When the unified run drives its own fingers, with
+      nothing else changed, the standing-mode gap falls from 3.5&times; to 1.3&times; in speed and
+      from 2&times; to 1.1&times; in throughput. This is a single re-evaluation of a single
+      checkpoint, and we do not generalize from it. Adding five anti-gaming reward mechanisms to the
+      dual critic did not raise validated reach rate (60.9% vs. 65.2%). The two runs differ not only
+      in the critic but also in the PPO update rule (one summed advantage under one likelihood
+      ratio, versus a per-stream advantage and a ratio per actor), and further in curriculum, arm
+      action dimensionality, finger control and reward weights; each is a single seed. The
+      measurement therefore cannot separate the critic from the update rule. We argue that critic
+      architecture deserves explicit treatment as a design variable in multi-objective humanoid RL,
+      and specify the single-variable ablation needed to establish its causal contribution.</p>
     </div>
   </section>
 
@@ -289,8 +288,9 @@
       <table>
         <thead>
           <tr>
-            <th>Metric</th>
+            <th>Standing evaluation</th>
             <th>Unified critic (S6u)</th>
+            <th>S6u, own fingers driven&Dagger;</th>
             <th>Dual critic (S6s)</th>
             <th>Dual + anti-gaming (S7)</th>
           </tr>
@@ -299,27 +299,35 @@
           <tr>
             <td>Steps to target</td>
             <td>22.6</td>
-            <td class="win">6.5</td>
+            <td>8.3</td>
+            <td>6.5</td>
             <td>5.8</td>
           </tr>
           <tr>
             <td>Throughput (validated reaches / 1,000 steps)</td>
             <td>7.0</td>
-            <td class="win">14.3</td>
+            <td>12.7</td>
+            <td>14.3</td>
             <td>13.0</td>
           </tr>
           <tr>
             <td>Validated reach rate</td>
             <td>53.8%</td>
-            <td class="win">65.2%</td>
+            <td>59.4%</td>
+            <td>65.2%</td>
             <td>60.9%</td>
           </tr>
         </tbody>
       </table>
     </div>
     <p class="tbl-note">Standing evaluation: 3,000 steps, one environment, deterministic actions,
-    seed 42. Adding five anti-gaming reward mechanisms on top of the dual critic (S7) does not
-    improve on the architectural change alone.</p>
+    seed 42; the benchmark pins the fingers open for every policy.
+    &Dagger;Same unified checkpoint, same benchmark, seed and step count; the only change is that
+    its seven finger outputs drive the fingers, as they did in training. This is a single
+    re-evaluation of a single checkpoint, and we do not generalize from it; it still runs on the
+    dual run's locomotion branch, not its own, and that second mismatch is unmeasured. The
+    anti-gaming variant (S7) is faster to target than S6s but did not raise validated reach rate
+    or throughput. Walking-mode numbers and the rest of the table are in the paper (Table II).</p>
   </section>
 
   <section id="caveats">
@@ -358,7 +366,11 @@
         fingers for 18,838 of the 20,000 training iterations. They are discarded at evaluation,
         where the benchmark pins the fingers open for every policy, so the unified policy is
         measured in a configuration it did not train in. The confound is in the task performed as
-        well as in exploration and policy entropy.</li>
+        well as in exploration and policy entropy. When the unified checkpoint drives its own
+        fingers, with nothing else changed, the standing-mode gap falls from 3.5&times; to
+        1.3&times; in speed and from 2&times; to 1.1&times; in throughput (walking: 2.3&times; to
+        1.2&times; and 1.8&times; to 1.03&times;). One re-evaluation of one checkpoint; not
+        generalized.</li>
 
         <li><strong>Single seed.</strong> Neither training run set a random seed, so each arm is
         one run with no variance estimate. The evaluation harness does seed itself, so the two
@@ -372,16 +384,18 @@
       </ul>
 
       <div class="verdict">
-        <p><strong>What this means.</strong> The evaluation itself is apples-to-apples &mdash; one
+        <p><strong>What this means.</strong> The evaluation is internally consistent &mdash; one
         harness, one shared locomotion branch, matched target sequences &mdash; so the measured gap
-        between these two checkpoints is real. The causal claim is not. With the curricula laid
-        side by side, the simpler explanation for the gap is training progress: the two policies
-        finished on tasks of very different difficulty, and the slower one had last been trained to
-        stand still.</p>
+        is a real property of these two checkpoints <em>under this harness</em>. It depends on the
+        harness: with the unified run's finger outputs restored and nothing else changed, the
+        standing-mode gap falls from 3.5&times; to 1.3&times; in speed and from 2&times; to
+        1.1&times; in throughput. Training progress is at least as parsimonious an explanation as
+        critic architecture for the difference that remains, and this design cannot isolate the
+        critic's contribution from the other differences listed above.</p>
         <p><strong>Critic architecture is therefore a hypothesis here, not an established cause.</strong>
-        A controlled ablation &mdash; one curriculum, one action space, one reward set, only the
-        critic swapped, across several seeds &mdash; is underway; these runs should be read as its
-        starting point. Every training script now writes a full <code>run_config.json</code> so
+        A controlled ablation &mdash; one curriculum, one action space, one reward set, one update
+        rule, only the critic swapped, across several seeds &mdash; is specified and instrumented
+        but not yet run; these runs should be read as its starting point. Every training script now writes a full <code>run_config.json</code> so
         that any future pair can be checked field by field before being called a comparison.</p>
       </div>
     </div>
@@ -397,8 +411,8 @@
   year    = {2026},
   doi     = {10.48550/arXiv.2606.11891},
   url     = {https://github.com/mturan33/isaac-g1-ulc},
-  note    = {ICRA 2026 Workshop on Reinforcement Learning for
-             Imitation Learning (RL4IL)}
+  note    = {ICRA 2026 Workshop on Reinforcement Learning in the Era
+             of Imitation Learning (RL4IL)}
 }</pre>
   </section>
 
