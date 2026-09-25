@@ -275,7 +275,7 @@
       dual critic did not raise validated reach rate (60.9% vs. 65.2%). The two runs differ not only
       in the critic but also in the PPO update rule (one summed advantage under one likelihood
       ratio, versus a per-stream advantage and a ratio per actor), and further in curriculum, arm
-      action dimensionality, finger control and reward weights; each is a single seed. The
+      action dimensionality, finger control and reward weights; each is a single run. The
       measurement therefore cannot separate the critic from the update rule. We argue that critic
       architecture deserves explicit treatment as a design variable in multi-objective humanoid RL,
       and specify the single-variable ablation needed to establish its causal contribution.</p>
@@ -366,14 +366,14 @@
         fingers for 18,838 of the 20,000 training iterations. They are discarded in the original,
         pinned-finger evaluation, where the benchmark pins the fingers open for every policy, so
         the unified policy is
-        measured in a configuration it did not train in. The confound is in the task performed as
-        well as in exploration and policy entropy. When the unified checkpoint drives its own
+        measured in a configuration it did not train in. The confound is in the task performed and
+        may also lie in exploration and policy entropy, which were not measured. When the unified checkpoint drives its own
         fingers, with nothing else changed, the standing-mode gap falls from 3.5&times; to
         1.3&times; in speed and from 2&times; to 1.1&times; in throughput (walking: 2.3&times; to
         1.2&times; and 1.8&times; to 1.03&times;). One re-evaluation of one checkpoint; not
         generalized.</li>
 
-        <li><strong>Single seed.</strong> Neither training run set a random seed, so each arm is
+        <li><strong>Single run, no seed.</strong> Neither training run set a random seed, so each arm is
         one run with no variance estimate. The evaluation harness does seed itself, so the two
         policies are compared on matched target sequences.</li>
 
